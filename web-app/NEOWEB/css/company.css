@@ -1,0 +1,341 @@
+.formItemC {
+	fontFamily: TrebuchetMS;
+	fontSize: 13;
+   	fontWeight: normal;
+   	paddingTop: 2;
+   	paddingRight: 2;
+   	paddingBottom: 2;
+   	paddingLeft: 2;
+   	color: #FFFFFF;
+}
+
+.formHeadingC{
+	fontFamily: TrebuchetMS;
+	fontSize: 18;
+   	fontWeight: bold;
+   	fontStyle: italic;
+   	color: #FFFFFF;
+}
+
+
+.comboBoxC{
+	fontFamily: TrebuchetMS;
+	fontSize: 13;
+   	fontWeight: normal;
+   	editable: false;
+   	borderThickness: 1.5;
+   	color: #FFFFFF;
+   	themeColor: #DCDCDC;
+  	borderColor: #040404;
+	fillColors: #00C800, #008B00;   	
+	fillAlphas: 1.0, 1.0;
+    selectionColor: #009900;
+    textSelectedColor: #000000;
+    rollOverColor: #009900;
+    textRollOverColor: #000000;
+    alternatingItemColors: #65c12f, #c1bcbc;
+}
+
+.checkBoxC{
+	iconColor: #000000;
+   	themeColor: #DCDCDC;
+	fontFamily: TrebuchetMS;
+	fontSize: 14;
+   	fontWeight: normal;
+   	fontStyle: normal;
+   	color: #FFFFFF;
+	textRollOverColor: #008C00;   	
+}
+
+.listC{
+	borderStyle: none;
+	cornerRadius: 20;
+	backgroundColor: #F2F2F2;
+	backgroundAlpha: 0.2;
+}
+
+.accordionC{
+   	cornerRadius: 10;
+	paddingBottom: 2;
+	paddingLeft: 2;
+	paddingRight: 2;
+	paddingTop: 2;
+   	headerHeight: 25;   	
+   	backgroundColor: #008B00;
+   	borderColor: #FAFAFA;   	
+   	headerStyleName: accordionHeaderC;
+	dropShadowEnabled: true;
+	kerning: false;
+	textRollOverColor: #020202;
+}
+
+.accordionHeaderC{
+	fontFamily: TrebuchetMS;
+	fontSize: 14;
+   	fontWeight: normal;
+   	textAlign: center;
+   	color: #FFFFFF;
+   	fillColors: #008B00, #008B00;
+	fillAlphas: 1.0, 1.0;
+	cornerRadius: 20;
+	textSelectedColor: #008B00;
+	themeColor: #FAFAFA
+}
+
+ .dataGridC{
+	Alpha: 0.75;
+	backgroundAlpha: 0.4;
+	borderStyle: solid;
+	borderThickness: 3; 
+	fontFamily: TrebuchetMS;
+	fontSize: 12;
+	fotntWeight: normal;
+	borderColor: #000000;
+	color: #000000;
+    selectionColor: #008B00;
+    textSelectedColor: #000000;
+    rollOverColor: #009900;
+    textRollOverColor: #000000;
+	alternatingItemColors: #65c12f, #c1bcbc;    
+	headerStyleName: DataGridHeaderC;
+}
+
+
+.DataGridHeaderC{
+	fontFamily: TrebuchetMS;
+	fontSize: 13;
+	fotntWeight: bold;
+	textAlign: center;
+}
+
+.buttonC{
+	fontFamily: TrebuchetMS;
+	fontSize: 12;
+   	fontWeight: normal;
+   	cornerRadius: 8;
+	themeColor: #F3F7F9;
+	borderColor: #008B00;
+	fillAlphas: 1.0, 1.0;
+	fillColors: #00C800, #008B00;
+	color: #FFFFFF;
+}
+
+.labelC{
+	fontFamily: TrebuchetMS;
+	fontSize: 13;
+   	fontWeight: normal;
+   	fontStyle: normal;
+   	color: #FFFFFF;
+}
+
+.reseñaC{
+	fontFamily: TrebuchetMS;
+	fontSize: 12;
+   	fontWeight: normal;
+   	fontStyle: normal;
+   	color: #FFFFFF;
+}
+ 
+.textC{
+	fontFamily: TrebuchetMS;
+	fontSize: 13;
+   	fontWeight: normal;
+   	fontStyle: normal;
+   	color: #FFFFFF;
+}
+
+.hRuleC{
+	strokeWidth: 2;
+	themeColor: #000000;
+}
+
+.textInputC{
+	color: #336033;
+	themeColor: #097709;	
+}
+
+.areaTextoSimpleC{
+	fontFamily: TrebuchetMS;
+	fontSize: 14;
+   	fontWeight: normal;
+	fontStyle: normal;
+   	color: #FFFFFF;
+	borderStyle: none;
+	backgroundAlpha: 0.1;
+	paddingBottom: 10;
+	paddingLeft: 10;
+	paddingRight: 10;
+	paddingTop: 10;
+	editable: false;
+	selectable: false;
+}
+.textoEntradaC{
+	backgroundColor: #080808;
+	backgroundAlpha: 0.4;
+	borderStyle: none;
+	color: #FFFFFF;	
+	paddingBottom: 3;
+	paddingLeft: 5;
+	paddingTop: 3;
+	themeColor: #0DBD2E;	
+}
+.textoSimpleC{
+	fontFamily: TrebuchetMS;
+	fontSize: 14;
+   	fontWeight: normal;
+   	fontStyle: normal;
+   	color: #FFFFFF;
+}
+
+.textoSimpleBoldC{
+	fontFamily: TrebuchetMSbold;
+	fontSize: 14;
+   	fontWeight: bold;
+   	fontStyle: normal;
+   	color: #FFFFFF;
+}
+
+.epigrafeDerechaC{
+	fontFamily: TrebuchetMS;
+	fontSize: 18;
+   	fontWeight: bold;
+   	fontStyle: italic;
+   	textAlign: right;
+   	color: #FFFFFF;
+} 
+.epigrafeIzquierdaC{
+	fontFamily: TrebuchetMS;
+	fontSize: 18;
+   	fontWeight: bold;
+   	fontStyle: italic;
+   	textAlign: left;
+   	color: #FFFFFF;
+} 
+
+.menuItemC{
+	fontFamily: TrebuchetMS;
+	fontSize: 12;
+   	fontWeight: normal;
+   	fontStyle: normal;
+   	color: #008B00;
+   	textDecoration: underline;	
+}
+
+.menuItemDeshabilitadoC{
+      fontFamily: TrebuchetMS;
+      fontSize: 12;
+      fontWeight: normal;
+      fontStyle: normal;
+      color: #A8ADA8;
+      textDecoration: normal; 
+}
+.menuItemClickedC{
+	fontFamily: TrebuchetMSbold;
+	fontSize: 12;
+   	fontWeight: bold;
+   	fontStyle: normal;
+   	color: #000000;
+   	textDecoration: underline;	
+}
+
+.contenedorTituloC{
+	verticalAlign: middle;
+	paddingRight: 10;	
+	paddingLeft: 10;	
+}
+
+.tituloComponenteC{	
+	fontFamily: TrebuchetMS;
+	fontSize: 25;
+   	fontWeight: normal;
+   	fontStyle: normal;
+   	color: #00C800;
+}
+
+.contenedorComponenteC{
+	horizontalScrollPolicy: off;
+	verticalScrollPolicy: off;	
+	paddingBottom: 3;
+	paddingLeft: 3;
+	paddingRight: 3;
+	paddingTop: 3;	
+}
+
+.fondoComponenteC{
+	borderColor: #008B00;
+	borderStyle: solid;
+	borderThickness: 2;
+	cornerRadius: 20;
+	backgroundColor: #F2F2F2;
+	horizontalScrollPolicy: off;
+	verticalScrollPolicy: off;
+	backgroundAlpha: 0.1;
+	dropShadowEnabled: true;
+}
+.fondoMenuC{
+	borderColor: #008B00;
+	borderStyle: solid;
+	borderThickness: 3;
+	cornerRadius: 10;
+	backgroundColor: #D9D9D9;
+	backgroundAlpha: 0.95;
+	dropShadowEnabled: true;
+}
+.menuVerticalC{
+	borderColor: #f2f2f2;
+	borderStyle: solid;
+	borderThickness: 1.5;
+	cornerRadius: 10;
+	backgroundColor: #D9D9D9;
+	backgroundAlpha: 0.95;
+	horizontalAlign: left;
+	verticalAlign: bottom;
+	verticalGap: -6;
+	paddingLeft: 6;
+	paddingTop: 6;
+	paddingBottom: 6;
+}
+
+.menuHorizontalC{
+	borderColor: #f2f2f2;
+	borderStyle: solid;
+	borderThickness: 1.5;
+	cornerRadius: 10;
+	backgroundColor: #D9D9D9;
+	backgroundAlpha: 0.95;
+	horizontalAlign: left;
+	verticalAlign: middle;
+	verticalGap: -6;
+	paddingLeft: 6;
+	paddingTop: 6;
+	paddingBottom: 6;
+}
+
+.areaTextoReseñaC{
+	fontFamily: TrebuchetMS;
+	fontSize: 12;
+   	fontWeight: normal;
+	fontStyle: normal;
+   	color: #FFFFFF;
+	borderStyle: none;
+	backgroundAlpha: 0.1;
+	paddingBottom: 10;
+	paddingLeft: 10;
+	paddingRight: 10;
+	paddingTop: 10;
+	editable: false;
+	selectable: false;
+}
+
+@font-face {
+   src: local("Trebuchet MS");
+   fontFamily: "TrebuchetMSbold";
+   fontWeight: bold;
+}
+
+@font-face {
+   src: local("Trebuchet MS");
+   fontFamily: "TrebuchetMS";
+}
+
+

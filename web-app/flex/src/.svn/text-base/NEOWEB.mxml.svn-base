@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	backgroundGradientAlphas="[1.0, 1.0]" backgroundGradientColors="[#000000, #000000]"
+	xmlns:componentes="componentes.*" backgroundImage="assets/dark_nite.jpg"
+	xmlns:local="*"
+	initialize="init()">
+
+	<mx:Style source="css/neomain.css"/>
+
+	<mx:Script>
+		<![CDATA[
+			import mx.events.ValidationResultEvent;
+			import mx.containers.Panel;
+			import mx.collections.ArrayCollection;
+			import mx.rpc.events.ResultEvent;
+			import mx.rpc.events.FaultEvent;
+			import mx.events.CloseEvent;
+			import mx.events.FlexEvent;
+			import mx.events.ItemClickEvent;
+			import mx.controls.Image;
+			import mx.controls.Alert;
+			import mx.core.UIComponent;
+			import componentes.*;
+			import flash.utils.Timer;
+			import mx.rpc.http.HTTPService;
+			import mx.managers.PopUpManager;
+			import mx.events.CalendarLayoutChangeEvent;
+			import flash.external.ExternalInterface;
+
+			public static const SERVER:String = "http://10.95.43.231:8080/NEOBE";
+			
+			// guarda todos los datos de cada entrada almacenados en XML
+			[Bindable]
+			private var _datosLoginXML:XML;
+
+			[Bindable]
+			private var _logged:Boolean;
+			
+			private function init():void {
+				_logged = false;  // voy as stack de login
+			}
+
+			private function loginHandler(evt:MyDataEvent):void {
+				_datosLoginXML = evt.result as XML;
+				trace("Estos son los datos que me llegan: "+_datosLoginXML.toXMLString());
+				_logged = true;
+				//Alert.show("ME HA LLEGADO: " + _datosLoginXML.toXMLString());
+			}
+			
+			private function joinHandler(evt:MyDataEvent):void {
+				trace("A Join SME (provisional)");
+				viewNeo.selectedIndex = 2;
+			}
+			
+			private function registrationHandler(evt:MyDataEvent):void {
+				trace("End registration (provisional)");
+				viewNeo.selectedIndex = 0;
+			}
+		]]>
+	</mx:Script>
+	
+	
+	<mx:Dissolve id="dissolveOut" duration="700" alphaFrom="1.0" alphaTo="0.0"/>
+	<mx:Dissolve id="dissolveIn" duration="700" alphaFrom="0.0" alphaTo="1.0"/>
+
+<mx:HBox width="100%"
+	horizontalScrollPolicy="off" verticalScrollPolicy="auto"
+	horizontalAlign="center">
+
+
+	<mx:VBox id="logincontent" backgroundAlpha="0.3" backgroundColor="#0000ff"
+		width="80%" height="800" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+		
+		<mx:HBox id="logoneo" horizontalAlign="left" height="60" verticalAlign="bottom">
+				<mx:Image x="25" y="76" source="assets/logo.png"/>
+				<mx:Spacer width="5"/>	
+				<mx:Label text="The SMEs Online Community" fontSize="25" color="#ffffff"/>					
+		</mx:HBox>
+		<mx:Spacer height="10"/>
+		
+		<mx:ViewStack id="viewNeo" selectedIndex="{_logged? 1:0}" width="100%" height="100%">
+			<componentes:PresentationPage id="loginpanel"
+				server="{SERVER}" creationComplete="loginpanel.addEventListener(MyDataEvent.USUARIO_AUTORIZADO, loginHandler); loginpanel.addEventListener(MyDataEvent.JOIN_NEO, joinHandler);"
+				hideEffect="{dissolveOut}"/>
+			
+			<componentes:MainPage id="main" width="80%"
+				server="{SERVER}" datosXML="{_datosLoginXML}"/>
+
+			<componentes:RegisterSME id="registersme" width="80%" datosXML="{_datosLoginXML}"
+				server="{SERVER}" creationComplete="registersme.addEventListener(MyDataEvent.END_REGISTRATION, registrationHandler)"/>
+
+		</mx:ViewStack>	
+	</mx:VBox>	
+
+</mx:HBox>	
+
+
+
+	
+		
+</mx:Application>

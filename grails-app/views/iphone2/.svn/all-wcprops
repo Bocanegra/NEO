@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repositorio/neobe/!svn/ver/681/trunk/grails-app/views/iphone2
+END
+_footer.gsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repositorio/neobe/!svn/ver/376/trunk/grails-app/views/iphone2/_footer.gsp
+END
+sme.gsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repositorio/neobe/!svn/ver/426/trunk/grails-app/views/iphone2/sme.gsp
+END
+_header.gsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repositorio/neobe/!svn/ver/384/trunk/grails-app/views/iphone2/_header.gsp
+END
+show.gsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repositorio/neobe/!svn/ver/628/trunk/grails-app/views/iphone2/show.gsp
+END
+info.gsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repositorio/neobe/!svn/ver/426/trunk/grails-app/views/iphone2/info.gsp
+END
+_info_red.gsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repositorio/neobe/!svn/ver/659/trunk/grails-app/views/iphone2/_info_red.gsp
+END
+rss.gsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repositorio/neobe/!svn/ver/421/trunk/grails-app/views/iphone2/rss.gsp
+END
+searchList.gsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repositorio/neobe/!svn/ver/399/trunk/grails-app/views/iphone2/searchList.gsp
+END
+_info_sector.gsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repositorio/neobe/!svn/ver/381/trunk/grails-app/views/iphone2/_info_sector.gsp
+END
+_info_sme.gsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repositorio/neobe/!svn/ver/681/trunk/grails-app/views/iphone2/_info_sme.gsp
+END
+login.gsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repositorio/neobe/!svn/ver/623/trunk/grails-app/views/iphone2/login.gsp
+END

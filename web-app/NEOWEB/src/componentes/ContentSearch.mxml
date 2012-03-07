@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" width="800" height="300">
+
+	<mx:Script>
+		<![CDATA[
+			
+		[Bindable]
+		private var _datosXML:XML;
+
+
+        public function get datosXML():XML {
+            return this._datosXML;
+        }        
+        public function set datosXML(data:XML):void {
+            _datosXML = data;
+        }        
+
+
+		       			
+		]]>
+	</mx:Script>
+
+	<mx:VBox horizontalScrollPolicy="off"
+	verticalScrollPolicy="off" horizontalAlign="center">
+
+		<mx:Spacer height="20"/>
+		
+		<mx:HBox horizontalScrollPolicy="off" width="100%"
+			verticalScrollPolicy="off" verticalAlign="bottom">
+			
+			<mx:Spacer width="30"/>
+			
+			<mx:TextInput id="searchitem" width="400"/>	
+
+			<mx:Button label="Search!" styleName="orangeButton"/>
+		</mx:HBox>
+	</mx:VBox>		
+	
+</mx:HBox>

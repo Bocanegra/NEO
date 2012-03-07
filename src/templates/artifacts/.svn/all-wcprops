@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repositorio/neobe/!svn/ver/579/trunk/src/templates/artifacts
+END
+Controller.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repositorio/neobe/!svn/ver/579/trunk/src/templates/artifacts/Controller.groovy
+END
+Filters.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repositorio/neobe/!svn/ver/579/trunk/src/templates/artifacts/Filters.groovy
+END
+Script.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repositorio/neobe/!svn/ver/579/trunk/src/templates/artifacts/Script.groovy
+END
+TagLib.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repositorio/neobe/!svn/ver/579/trunk/src/templates/artifacts/TagLib.groovy
+END
+WebTest.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repositorio/neobe/!svn/ver/579/trunk/src/templates/artifacts/WebTest.groovy
+END
+Service.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repositorio/neobe/!svn/ver/579/trunk/src/templates/artifacts/Service.groovy
+END
+DomainClass.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repositorio/neobe/!svn/ver/579/trunk/src/templates/artifacts/DomainClass.groovy
+END
+Tests.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repositorio/neobe/!svn/ver/579/trunk/src/templates/artifacts/Tests.groovy
+END

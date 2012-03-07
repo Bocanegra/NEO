@@ -1,0 +1,305 @@
+
+
+.errorLabel {
+	fontFamily: TrebuchetMSbold;
+	fontSize: 15;
+   	fontWeight: bold;
+   	color: #FF0000;
+}	 
+
+FormItem {
+	fontFamily: TrebuchetMS;
+	fontSize: 13;
+   	fontWeight: normal;
+   	paddingTop: 2;
+   	paddingRight: 2;
+   	paddingBottom: 2;
+   	paddingLeft: 2;
+}
+
+FormHeading{
+	fontFamily: TrebuchetMS;
+	fontSize: 18;
+   	fontWeight: bold;
+   	fontStyle: italic;
+   	color: #FFFFFF;
+}
+
+ComboBox {
+	fontFamily: TrebuchetMS;
+	fontSize: 13;
+   	fontWeight: normal;
+   	editable: false;
+   	borderColor: #040404;
+   	borderThickness: 1.5;
+   	color: #FFFFFF;
+   	themeColor: #DCDCDC;
+}
+
+CheckBox {
+	iconColor: #FFFFFF;
+   	themeColor: #DCDCDC;
+	fontFamily: TrebuchetMS;
+	fontSize: 14;
+   	fontWeight: normal;
+   	fontStyle: normal;
+   	color: #FFFFFF;
+   	textRollOverColor: #C6FF00;   	
+}
+
+List{
+	borderStyle: none;
+	cornerRadius: 20;
+	backgroundColor: #F2F2F2;
+	backgroundAlpha: 0.2;
+}
+
+Accordion {
+   	cornerRadius: 10;
+	paddingBottom: 2;
+	paddingLeft: 2;
+	paddingRight: 2;
+	paddingTop: 2;
+   	headerHeight: 25;
+   	backgroundColor: #000080;
+   	borderColor: #000064;
+   	headerStyleName: AccordionHeader;
+	dropShadowEnabled: true;
+	kerning: false;
+	textRollOverColor: #C6FF00;
+}
+.AccordionHeader {
+	fontFamily: TrebuchetMS;
+	fontSize: 14;
+   	fontWeight: normal;
+   	textAlign: center;
+   	color: #FFFFFF;
+   	fillColors:  #000080, #78A2E7;
+	cornerRadius: 20;
+	textSelectedColor: #000080;
+	themeColor: #78A2E7
+}
+
+DataGrid{
+	Alpha: 0.75;
+	borderStyle: solid;
+	borderThickness: 3; 
+	alternatingItemColors: #F2F2F2, #D0DFF7;
+	textSelectedColor: #000080;
+	borderColor: #D0DFF7;
+	color: #000000;
+	themeColor: #78A2E7;
+	backgroundAlpha: 0.4;
+	fontFamily: TrebuchetMS;
+	fontSize: 12;
+	fotntWeight: normal;
+	backgroundColor: #2256AC;
+	headerStyleName: DataGridHeader;
+}
+
+.DataGridHeader {
+	fontFamily: TrebuchetMS;
+	fontSize: 13;
+	fotntWeight: bold;
+	textAlign: center;
+}
+
+Button {
+	fontFamily: TrebuchetMS;
+	fontSize: 12;
+   	fontWeight: normal;
+   	cornerRadius: 8;
+	themeColor: #78A2E7;
+	borderColor: #78A2E7;
+	fillColors: #000080, #78A2E7;
+	fillAlphas: 1.0, 1.0;
+	color: #FFFFFF;
+}
+
+Label{
+	fontFamily: TrebuchetMS;
+	fontSize: 13;
+   	fontWeight: normal;
+   	fontStyle: normal;
+   	color: #FFFFFF;
+}
+
+.reseña{
+	fontFamily: TrebuchetMS;
+	fontSize: 12;
+   	fontWeight: normal;
+   	fontStyle: normal;
+   	color: #FFFFFF;
+}
+ 
+Text {
+	fontFamily: TrebuchetMS;
+	fontSize: 13;
+   	fontWeight: normal;
+   	fontStyle: normal;
+   	color: #FFFFFF;
+}
+
+HRule{
+	strokeWidth: 2;
+	themeColor: #78A2E7;
+}
+
+TextInput{
+	color: #000080;
+	themeColor: #78A2E7;
+}
+
+.areaTextoSimple{
+	fontFamily: TrebuchetMS;
+	fontSize: 14;
+   	fontWeight: normal;
+	fontStyle: normal;
+   	color: #FFFFFF;
+	borderStyle: none;
+	backgroundAlpha: 0.1;
+	paddingBottom: 10;
+	paddingLeft: 10;
+	paddingRight: 10;
+	paddingTop: 10;
+	editable: false;
+	selectable: false;
+}
+.textoEntrada{
+	backgroundColor: #111111;
+	backgroundAlpha: 0.4;
+	borderStyle: none;
+	color: #FFFFFF;
+	paddingBottom: 3;
+	paddingLeft: 5;
+	paddingTop: 3;	
+}
+.textoSimple{
+	fontFamily: TrebuchetMS;
+	fontSize: 14;
+   	fontWeight: normal;
+   	fontStyle: normal;
+   	color: #FFFFFF;
+}
+
+.epigrafeDerecha {
+	fontFamily: TrebuchetMS;
+	fontSize: 18;
+   	fontWeight: bold;
+   	fontStyle: italic;
+   	textAlign: right;
+   	color: #FFFFFF;
+} 
+.epigrafeIzquierda {
+	fontFamily: TrebuchetMS;
+	fontSize: 18;
+   	fontWeight: bold;
+   	fontStyle: italic;
+   	textAlign: left;
+   	color: #FFFFFF;
+} 
+
+.menuItem {
+	fontFamily: TrebuchetMS;
+	fontSize: 12;
+   	fontWeight: normal;
+   	fontStyle: normal;
+   	color: #000080;
+   	textDecoration: underline;	
+}
+
+.menuItemDeshabilitado {
+      fontFamily: TrebuchetMS;
+      fontSize: 12;
+      fontWeight: normal;
+      fontStyle: normal;
+      color: #A8ADA8;
+      textDecoration: normal; 
+}
+
+.contenedorTitulo{
+	verticalAlign: middle;
+	paddingRight: 10;	
+	paddingLeft: 10;	
+}
+
+.tituloComponente {	
+	fontFamily: TrebuchetMS;
+	fontSize: 25;
+   	fontWeight: normal;
+   	fontStyle: normal;
+   	color: #78A2E7;
+   	height: 30;	
+}
+
+.contenedorComponente{
+	horizontalScrollPolicy: off;
+	verticalScrollPolicy: off;	
+	paddingBottom: 3;
+	paddingLeft: 3;
+	paddingRight: 3;
+	paddingTop: 3;	
+}
+
+.fondoComponente {
+	borderColor: #2256AC;
+	borderStyle: solid;
+	borderThickness: 2;
+	cornerRadius: 20;
+	backgroundColor: #000064;
+	horizontalScrollPolicy: off;
+	verticalScrollPolicy: off;
+	backgroundAlpha: 0.7;
+	dropShadowEnabled: true;
+}
+.fondoMenu {
+	borderColor: #000064;
+	borderStyle: solid;
+	borderThickness: 3;
+	cornerRadius: 10;
+	backgroundColor: #D9D9D9;
+	backgroundAlpha: 0.95;
+	dropShadowEnabled: true;
+}
+.menuVertical{
+	borderColor: #f2f2f2;
+	borderStyle: solid;
+	borderThickness: 1.5;
+	cornerRadius: 10;
+	backgroundColor: #D9D9D9;
+	backgroundAlpha: 0.95;
+	horizontalAlign: left;
+	verticalAlign: bottom;
+	verticalGap: -6;
+	paddingLeft: 6;
+	paddingTop: 6;
+	paddingBottom: 6;
+}
+
+.menuHorizontal{
+	borderColor: #f2f2f2;
+	borderStyle: solid;
+	borderThickness: 1.5;
+	cornerRadius: 10;
+	backgroundColor: #D9D9D9;
+	backgroundAlpha: 0.95;
+	horizontalAlign: left;
+	verticalAlign: middle;
+	verticalGap: -6;
+	paddingLeft: 6;
+	paddingTop: 6;
+	paddingBottom: 6;
+}
+
+@font-face {
+   src: local("Trebuchet MS");
+   fontFamily: "TrebuchetMSbold";
+   fontWeight: bold;
+}
+
+@font-face {
+   src: local("Trebuchet MS");
+   fontFamily: "TrebuchetMS";
+}
+
+

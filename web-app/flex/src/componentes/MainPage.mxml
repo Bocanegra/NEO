@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:componentes="componentes.*"
+	horizontalScrollPolicy="off" verticalScrollPolicy="off"
+	horizontalAlign="center">
+	
+<mx:Script>
+	<![CDATA[
+			
+		[Bindable]
+		private var _datosXML:XML;
+		
+		[Bindable]
+		private var _selection:int = 2; //empiezo por la empresa
+
+		[Bindable]
+		public var server:String;
+					
+        public function get datosXML():XML {
+            return this._datosXML;
+        }        
+        public function set datosXML(data:XML):void {
+            _datosXML = data;
+        }        
+
+		private function selectionHandler(evt:MyDataEvent):void {
+			var _respuestaXML:XML = evt.result as XML;
+			trace("This is the menu selection: "+_respuestaXML.toString());
+			_selection = int(_respuestaXML.toString());
+		}        			
+	]]>
+</mx:Script>
+
+	<componentes:MainMenu id="mainmenu"
+		creationComplete="mainmenu.addEventListener(MyDataEvent.MENU_SELECTION, selectionHandler)"/>
+	
+	<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" 
+		horizontalScrollPolicy="off" verticalScrollPolicy="off"
+		horizontalAlign="center" backgroundAlpha="0.3"
+	    backgroundColor="#ffffff">
+		
+		<mx:ViewStack selectedIndex="{_selection}">
+			<componentes:ContentYou id="contentyou" datosXML="{_datosXML}"/>
+			<componentes:ContentPartners id="contentpartners" server="{server}" datosXML="{_datosXML}"/>
+			<componentes:ContentSme id="contentsme" datosXML="{_datosXML}"/>
+			<componentes:ContentContacts id="contentcontacts"  server="{server}" datosXML="{_datosXML}"/>
+			<componentes:ContentSearch id="contentsearch" datosXML="{_datosXML}"/>
+		</mx:ViewStack>
+
+	</mx:VBox>		
+			
+</mx:VBox>

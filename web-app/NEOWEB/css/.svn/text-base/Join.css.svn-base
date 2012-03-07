@@ -1,0 +1,148 @@
+.textoNegro{
+	fontSize: 55;
+	fontWeight: bold;
+	color: #000000;
+	fontFamily: TrebuchetMSbold;		
+}
+
+.text{
+	fontFamily: TrebuchetMS;		
+	fontSize: 14;
+	fontWeight: normal;
+	fontStyle: normal;
+	color: #000000;
+}
+
+.textInfo{
+	fontFamily: TrebuchetMS;		
+	fontSize: 12;
+	fontWeight: normal;
+	fontStyle: normal;
+	color: #000000;
+}
+
+.enlace{
+	fontFamily: TrebuchetMS;		
+	fontSize: 12;
+	fontWeight: normal;
+	fontStyle: normal;
+	color: #000000;
+	textDecoration: underline;
+}
+
+.frase{
+	fontFamily: TrebuchetMSItalicBold;		
+	fontSize: 18;
+	fontStyle: italic;
+	fontWeight: bold;
+	color: #000000;
+}
+
+
+.formHeadingLogin{
+	fontFamily: TrebuchetMS;		
+	fontSize: 17;
+	color: #000000;
+}
+
+.formHeading{
+	fontFamily: TrebuchetMSItalic;		
+	fontSize: 18;
+	fontStyle: italic;
+	color: #000000;
+	fontWeight: normal;
+}
+
+.formItem{
+	fontSize: 14;
+	fontFamily: TrebuchetMS;		
+	fontWeight: normal;
+	fontStyle: normal;
+	color: #000000;
+}
+
+
+.tab{
+	fontSize: 15;
+	fontFamily: TrebuchetMS;		
+	fontWeight: normal;
+	fontStyle: normal;
+	color: #000000;	
+	tabHeight: 40;
+}
+
+.button{
+   fontFamily: TrebuchetMS;
+   fontSize: 15;
+   cornerRadius: 5;
+   fontWeight: normal;
+   fillColors: #484747, #a19d9d;
+   fillAlphas: 0.6, 0.3;
+   themeColor: #37373F;
+   color: #ffffff;
+   borderColor: #000080;
+}
+
+.textInput{
+   fontFamily: TrebuchetMS;
+   fontSize: 12;	
+   cornerRadius: 5;
+   backgroundColor: #ffffff;
+   color: #000000;
+   borderStyle: solid;
+   borderThickness: 2;
+}
+
+.textInputLogin{
+   fontFamily: TrebuchetMS;
+   fontSize: 14;	
+   cornerRadius: 5;
+   backgroundColor: #ffffff;
+   color: #000000;
+   borderStyle: solid;
+   borderThickness: 2;
+}
+
+.fondoElemento{
+	cornerRadius: 10;
+	borderStyle: solid;
+	verticalAlign: bottom;
+	horizontalAlign: center;
+	paddingBottom: 25;
+	paddingLeft: 10;
+	paddingRight: 10;
+	paddingTop: 10;
+	
+}
+
+.errorLogin{
+   fontFamily: TrebuchetMS;
+   fontSize: 10;
+   color: #ff0000;
+}
+
+@font-face {
+   src: local("Trebuchet MS");
+   fontFamily: "TrebuchetMSbold";
+   fontWeight: bold;
+}
+
+@font-face {
+   src: local("Trebuchet MS");
+   fontFamily: "TrebuchetMSItalic";
+   fontStyle: italic;
+}
+
+@font-face {
+   src: local("Trebuchet MS");
+   fontFamily: "TrebuchetMSItalicBold";
+   fontStyle: italic;
+   fontWeight: bold;
+}
+
+
+@font-face {
+   src: local("Trebuchet MS");
+   fontFamily: "TrebuchetMS";
+}
+

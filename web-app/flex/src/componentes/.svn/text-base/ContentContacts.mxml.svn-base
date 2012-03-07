@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:controls="controls.*" width="800" height="300">
+
+	<mx:Script>
+		<![CDATA[
+			
+		import mx.rpc.events.ResultEvent;
+		import mx.rpc.events.FaultEvent;
+		import mx.controls.Alert;
+					
+		[Bindable]
+		private var _datosXML:XML;
+		[Bindable]
+		public var server:String;
+
+
+        public function get datosXML():XML {
+            return this._datosXML;
+        }        
+        public function set datosXML(data:XML):void {
+            _datosXML = data;
+        }        
+
+		public function sendInvitation():void {
+			invitationSME.send({'smeName': SMEname,
+					'email': SMEemail.text});
+		}
+
+		private function invitationSMEOK(evt:ResultEvent):void {
+				var _invitationSMEXML:XML = evt.result as XML;		
+				trace("RECIBIDO CORRECTAMENTE: " + _invitationSMEXML.toXMLString());
+				var _code:String = _invitationSMEXML.entry.(@key=="code");
+				spinnerContacts.visible=false;
+				if(_code == "001000") {
+					Alert.show("Success!");						
+				}
+				else if(_code == "001001" ||
+					_code == "001002" ||
+					_code == "001003") {
+					Alert.show(_invitationSMEXML.entry.(@key=="info"));						
+				}
+				else
+					trace("Don't know what I have received!!!!");
+		}
+			
+		private function invitationSMENOK(evt:FaultEvent):void {
+				Alert.show("Can't contact invitation service", "neo");
+				trace("Can't contact invitation service: " + evt.message.toString());
+		}					       			
+		       			
+		]]>
+	</mx:Script>
+
+	<mx:HTTPService id="invitationSME" url="{server}/employee/inviteSME.xml"
+		method="POST"
+		result="invitationSMEOK(event)" resultFormat="e4x"
+ 		fault="invitationSMENOK(event)">
+ 	</mx:HTTPService>
+
+
+	<mx:VBox horizontalScrollPolicy="off"
+	verticalScrollPolicy="off" horizontalAlign="center">
+
+		<mx:Spacer height="20"/>
+		
+		<mx:HBox horizontalScrollPolicy="off" width="100%"
+			verticalScrollPolicy="off" verticalAlign="bottom">
+			
+			<mx:Spacer width="30"/>
+			
+			<mx:Panel id="messageinbox" title="Contacts List"
+				 horizontalAlign="center" width="300">			
+				<mx:Text text="No contacts"/>
+			</mx:Panel>	
+
+			<mx:Button label="Create a contact" styleName="orangeButton"
+				width="250" click="invSME.visible=true"/>
+		</mx:HBox>
+
+		<mx:HBox id="invSME" horizontalScrollPolicy="off" width="100%"
+			verticalScrollPolicy="off" verticalAlign="bottom"
+			visible="false">
+			
+			<mx:Spacer width="30"/>
+			
+			<mx:Panel id="inviteSME" title="Invitation Data"
+				 horizontalAlign="center" width="300"
+				 horizontalScrollPolicy="off" verticalScrollPolicy="off">			
+			    <mx:Form width="350" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+			    
+			        <mx:FormItem id="formItemSME1" label="eMail:">
+			            <mx:TextInput id="SMEemail" width="100%"/>
+			        </mx:FormItem>
+			        <mx:FormItem id="formItemSME2" label="SME Name:">
+			            <mx:TextInput id="SMEname" width="100%"/>
+			        </mx:FormItem>
+			    </mx:Form>
+			</mx:Panel>	
+
+			<mx:Button label="Send" styleName="orangeButton"
+				click="spinnerContacts.visible=true;sendInvitation()"/>
+			
+			<controls:Spinner id="spinnerContacts" tickColor="#ffffff" size="30" numTicks="12" tickWidth="3"
+				speed="1000" fadeSpeed="600" visible="false"/>
+		</mx:HBox>
+
+	</mx:VBox>		
+					
+</mx:HBox>

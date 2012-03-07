@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repositorio/neobe/!svn/ver/670/trunk/grails-app/domain
+END
+Content.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repositorio/neobe/!svn/ver/329/trunk/grails-app/domain/Content.groovy
+END
+Recommendation.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repositorio/neobe/!svn/ver/623/trunk/grails-app/domain/Recommendation.groovy
+END
+Notice.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repositorio/neobe/!svn/ver/350/trunk/grails-app/domain/Notice.groovy
+END
+Membership.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repositorio/neobe/!svn/ver/359/trunk/grails-app/domain/Membership.groovy
+END
+ProfileData.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repositorio/neobe/!svn/ver/364/trunk/grails-app/domain/ProfileData.groovy
+END
+OperatorInfo.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repositorio/neobe/!svn/ver/372/trunk/grails-app/domain/OperatorInfo.groovy
+END
+RecommendationBox.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repositorio/neobe/!svn/ver/623/trunk/grails-app/domain/RecommendationBox.groovy
+END
+Employee.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repositorio/neobe/!svn/ver/670/trunk/grails-app/domain/Employee.groovy
+END
+NoticeBoard.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repositorio/neobe/!svn/ver/578/trunk/grails-app/domain/NoticeBoard.groovy
+END
+Administrator.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repositorio/neobe/!svn/ver/325/trunk/grails-app/domain/Administrator.groovy
+END
+Sme.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repositorio/neobe/!svn/ver/622/trunk/grails-app/domain/Sme.groovy
+END
+Notification.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repositorio/neobe/!svn/ver/567/trunk/grails-app/domain/Notification.groovy
+END
+SearchEngine.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repositorio/neobe/!svn/ver/329/trunk/grails-app/domain/SearchEngine.groovy
+END
+Message.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repositorio/neobe/!svn/ver/596/trunk/grails-app/domain/Message.groovy
+END
+Sector.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repositorio/neobe/!svn/ver/372/trunk/grails-app/domain/Sector.groovy
+END
+MessageBox.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repositorio/neobe/!svn/ver/670/trunk/grails-app/domain/MessageBox.groovy
+END
+Blog.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repositorio/neobe/!svn/ver/578/trunk/grails-app/domain/Blog.groovy
+END
+Post.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repositorio/neobe/!svn/ver/432/trunk/grails-app/domain/Post.groovy
+END
+Contact.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repositorio/neobe/!svn/ver/620/trunk/grails-app/domain/Contact.groovy
+END
+Feed.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repositorio/neobe/!svn/ver/670/trunk/grails-app/domain/Feed.groovy
+END
+ContactList.groovy
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repositorio/neobe/!svn/ver/620/trunk/grails-app/domain/ContactList.groovy
+END

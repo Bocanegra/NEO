@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" width="800"
+	horizontalAlign="center" verticalAlign="bottom" horizontalScrollPolicy="off"
+	verticalScrollPolicy="off">
+
+<mx:Script>
+	<![CDATA[
+
+		private var _selection:String = "2";
+
+		[Bindable]		
+		private var _im0:String="assets/you_icon_66.png";
+		[Bindable]		
+		private var _im0g:String="assets/you_icon_66_glow.png";
+		[Bindable]		
+		private var _im1:String="assets/yourpartners_icon_66.png";
+		[Bindable]		
+		private var _im1g:String="assets/yourpartners_icon_66_glow.png";
+		[Bindable]		
+		private var _im2:String="assets/sme_icon_66.png";
+		[Bindable]		
+		private var _im2g:String="assets/sme_icon_66_glow.png";
+		[Bindable]		
+		private var _im3:String="assets/yourcontacts_icon_66.png";
+		[Bindable]		
+		private var _im3g:String="assets/yourcontacts_icon_66_glow.png";
+		[Bindable]		
+		private var _im4:String="assets/search_icon_66.png";
+		[Bindable]		
+		private var _im4g:String="assets/search_icon_66_glow.png";
+		
+		[Event("MyDataEvent.MENU_SELECTION")]
+		
+		private function dispatchSelection(sel:String):void {
+			if(_selection=='0')	menu0.source=_im0;
+			if(_selection=='1')	menu1.source=_im1;
+			if(_selection=='2')	menu2.source=_im2;
+			if(_selection=='3')	menu3.source=_im3;
+			if(_selection=='4')	menu4.source=_im4;
+
+			if(sel=='0') menu0.source=_im0g;
+			if(sel=='1') menu1.source=_im1g;
+			if(sel=='2') menu2.source=_im2g;
+			if(sel=='3') menu3.source=_im3g;
+			if(sel=='4') menu4.source=_im4g;
+			
+			_selection = sel;		
+			var _selectionXML:XML = <selection></selection>
+			_selectionXML.appendChild(_selection);		
+			dispatchEvent(new MyDataEvent(MyDataEvent.MENU_SELECTION, _selectionXML));
+		}			
+		
+		private function marcaItemMenu():void {
+			smeOption.setStyle("backgroundAlpha", '0.3');
+			smeOption.setStyle("backgroundColor", '#ffffff');
+		}
+	]]>
+</mx:Script>
+
+
+	<mx:Glow id="glowImage" duration="1500" repeatCount="5"
+		 alphaFrom="1.0" alphaTo="0.3"
+		 blurXFrom="0.0" blurXTo="50.0"
+		 blurYFrom="0.0" blurYTo="50.0"
+		 color="#D99133"/>
+		
+
+	<mx:VBox width="140" verticalAlign="bottom" horizontalAlign="center">
+		<mx:Image id="menu0" source="{_im0}" useHandCursor="true" buttonMode="true" click="dispatchSelection('0')"
+			 mouseOver="menu0.source=_im0g"
+			 mouseOut="if(_selection!='0') menu0.source=_im0;"/>
+		<mx:Label text="You" styleName="orangeLabel"  useHandCursor="true" buttonMode="true" click="dispatchSelection('0')"/>
+	</mx:VBox>
+	<mx:VBox width="140" verticalAlign="bottom" horizontalAlign="center">
+		<mx:Image id="menu1" source="{_im1}"  useHandCursor="true" buttonMode="true" click="dispatchSelection('1')"
+			 mouseOver="menu1.source=_im1g"
+			 mouseOut="if(_selection!='1') menu1.source=_im1;"/>
+		<mx:Label text="YourPartners" styleName="orangeLabel" useHandCursor="true" buttonMode="true" click="dispatchSelection('1')"/>
+	</mx:VBox>
+	<mx:VBox id="smeOption" width="140" verticalAlign="bottom" horizontalAlign="center">
+		<mx:Image id="menu2" source="{_im2g}"  useHandCursor="true" buttonMode="true" click="dispatchSelection('2')"
+			 mouseOver="menu2.source=_im2g"
+			 mouseOut="if(_selection!='2') menu2.source=_im2;"/>
+		<mx:Label text="YourCompany" styleName="orangeLabel"
+			 useHandCursor="true" buttonMode="true" click="dispatchSelection('2')"/>
+	</mx:VBox>
+	<mx:VBox width="140" verticalAlign="bottom" horizontalAlign="center">
+		<mx:Image id="menu3" source="{_im3}" useHandCursor="true" buttonMode="true" click="dispatchSelection('3')"
+			 mouseOver="menu3.source=_im3g"
+			 mouseOut="if(_selection!='3') menu3.source=_im3;"/>
+		<mx:Label text="YourContacts" styleName="orangeLabel" useHandCursor="true" buttonMode="true" click="dispatchSelection('3')"/>
+	</mx:VBox>
+	<mx:VBox width="140" verticalAlign="bottom" horizontalAlign="center">
+		<mx:Image id="menu4" source="{_im4}"  useHandCursor="true" buttonMode="true" click="dispatchSelection('4')"
+			 mouseOver="menu4.source=_im4g"
+			 mouseOut="if(_selection!='4') menu4.source=_im4;"/>
+		<mx:Label text="Search" styleName="orangeLabel"  useHandCursor="true" buttonMode="true" click="dispatchSelection('4')"/>
+	</mx:VBox>
+</mx:HBox>

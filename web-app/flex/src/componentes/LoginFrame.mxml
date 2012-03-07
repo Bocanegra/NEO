@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" 
+	 horizontalScrollPolicy="off" verticalScrollPolicy="off">
+
+<mx:Script>
+	<![CDATA[
+		
+	public var user:String = "";
+	public var pass:String = "";
+	private var _errorVisible:Boolean = false;
+
+	[Bindable]
+	private var _errorMessage:String;
+	
+	[Event("MyDataEvent.TRY_LOGIN")]
+
+	public function set errorMessage(mess:String):void {
+		_errorMessage = mess;
+		mensajeError.visible = true;
+		_errorVisible = true;					
+
+	}
+			
+	private function enviaDatos():void {
+		user = usuario.text;
+		pass = password.text;
+		dispatchEvent(new MyDataEvent(MyDataEvent.TRY_LOGIN));
+	}
+
+		private function compruebaTecla(evt:KeyboardEvent):void {
+			if(_errorVisible == true) {
+				mensajeError.visible = false;
+				_errorVisible = false;				
+			}
+			if(evt.keyCode == 13) {
+				compruebaDatos();
+			}
+		}
+
+
+		private function compruebaDatos():void {
+				if(usuario.text == "" || password.text == "") {
+					_errorMessage = "ERROR. Fill both username and password fields"
+					mensajeError.visible = true;
+					_errorVisible = true;					
+				}
+				else
+					enviaDatos();
+		}		
+		
+
+	]]>
+</mx:Script>	
+
+	<mx:Dissolve id="dissolveIn" duration="700" alphaFrom="0.0" alphaTo="1.0"/>
+	<mx:Zoom id="zoomIn" zoomWidthFrom="0.0" zoomWidthTo="1.0"
+		 zoomHeightFrom="0.0" zoomHeightTo="1.0"/>
+
+	<mx:VBox id="panellogin" backgroundColor="#D99133"
+		 cornerRadius="10" width="150"
+		 borderStyle="solid" borderColor="#D99133" borderThickness="2"
+		 horizontalAlign="center" verticalAlign="top"
+		 horizontalScrollPolicy="off" verticalScrollPolicy="off">
+	 
+			<mx:VBox verticalAlign="middle" verticalGap="0">
+				<mx:Label text="User:" styleName="blackLabel" textAlign="left"/>
+				<mx:VBox width="140" verticalAlign="middle">
+					<mx:TextInput id="usuario" width="100%"
+						 keyDown="compruebaTecla(event)"/>
+				</mx:VBox>
+			</mx:VBox>
+		
+			<mx:VBox verticalAlign="middle" verticalGap="0">
+				<mx:Label text="Password:" styleName="blackLabel" textAlign="right"/>
+				<mx:VBox width="140" verticalAlign="middle">
+					<mx:TextInput id="password" width="100%"
+						displayAsPassword="true" keyDown="compruebaTecla(event)"/>
+				</mx:VBox>
+			</mx:VBox>	
+		
+			<mx:VBox width="140" horizontalAlign="right"
+				horizontalScrollPolicy="off" verticalScrollPolicy="off">
+				<mx:Button id="enviar" label="Login"
+					click="compruebaDatos()" keyDown="compruebaTecla(event)"/>
+			</mx:VBox>		
+
+	</mx:VBox>
+	
+	<mx:VBox horizontalScrollPolicy="off" verticalScrollPolicy="off">
+			<mx:Text styleName="orangeLabel" id="mensajeError" width="140" visible="false"
+			text="{_errorMessage}"/>
+	</mx:VBox>		
+
+		
+</mx:VBox>
+	

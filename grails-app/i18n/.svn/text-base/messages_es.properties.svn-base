@@ -1,0 +1,214 @@
+default.doesnt.match.message=La propiedad [{0}] de la clase [{1}] con valor [{2}] no corresponde al patrón [{3}]
+default.invalid.url.message=La propiedad [{0}] de la clase [{1}] con valor [{2}] no es una URL válida
+default.invalid.creditCard.message=La propiedad [{0}] de la clase [{1}] con valor [{2}] no es un número de tarjeta de crédito válida
+default.invalid.email.message=La propiedad [{0}] de la clase [{1}] con valor [{2}] no es una dirección de correo electrónico válida
+default.invalid.range.message=La propiedad [{0}] de la clase [{1}] con valor [{2}] no entra en el rango válido de [{3}] a [{4}]
+default.invalid.size.message=La propiedad [{0}] de la clase [{1}] con valor [{2}] no entra en el tamaño válido de [{3}] a [{4}]
+default.invalid.max.message=La propiedad [{0}] de la clase [{1}] con valor [{2}] excede el valor máximo [{3}]
+default.invalid.min.message=La propiedad [{0}] de la clase [{1}] con valor [{2}] es menos que el valor mínimo [{3}]
+default.invalid.max.size.message=La propiedad [{0}] de la clase [{1}] con valor [{2}] excede el tamaño máximo de [{3}]
+default.invalid.min.size.message=La propiedad [{0}] de la clase [{1}] con valor [{2}] es menor que el tamaño mínimo de [{3}]
+default.invalid.validator.message=La propiedad [{0}] de la clase [{1}] con valor [{2}] no es válida
+default.not.inlist.message=La propiedad [{0}] de la clase [{1}] con valor [{2}] no esta contenida dentro de la lista [{3}]
+default.blank.message=La propiedad [{0}] de la clase [{1}] no puede ser vacía
+default.not.equal.message=La propiedad [{0}] de la clase [{1}] con valor [{2}] no puede igualar a [{3}]
+default.null.message=La propiedad [{0}] de la clase [{1}] no puede ser nula
+default.not.unique.message=La propiedad [{0}] de la clase [{1}] con valor [{2}] debe ser única
+
+default.paginate.prev=Anterior
+default.paginate.next=Siguiente
+
+# Data binding errors. Use "typeMismatch.$className.$propertyName to customize (eg typeMismatch.Book.author)
+typeMismatch.java.net.URL=La propiedad {0} debe ser una URL válida
+typeMismatch.java.net.URI=La propiedad {0} debe ser una URI válida
+typeMismatch.java.util.Date=La propiedad {0} debe ser una fecha válida
+typeMismatch.java.lang.Double=La propiedad {0} debe ser un número válido
+typeMismatch.java.lang.Integer=La propiedad {0} debe ser un número válido
+typeMismatch.java.lang.Long=La propiedad {0} debe ser un número válido
+typeMismatch.java.lang.Short=La propiedad {0} debe ser un número válido
+typeMismatch.java.math.BigDecimal=La propiedad {0} debe ser un número válido
+typeMismatch.java.math.BigInteger=La propiedad {0} debe ser un número válido
+
+#Mensajes de respuesta
+global.error.params=Error en los parámetros de la petición 
+
+invitation.invite.ok=Invitación generada correctamente
+invitation.invite.nomail=Error al enviar invitación por correo electrónico
+invitation.invite.error=No ha sido posible procesar la invitación
+
+invitation.validate.ok=Invitación válida. Se retornan datos de la empresa
+invitation.validate.nodata=Invitación válida. No se dispone de datos de la empresa
+invitation.validate.smeexists=Invitación válida. La empresa ya está registrada. Registro de usuario secundario
+invitation.validate.fraud=Invitación no válida o la empresa ya ha sido registrada
+invitation.validate.error=Error al validar la invitación
+
+invitation.delete.ok=Invitación eliminada
+invitation.delete.error=Error al borrar invitación
+
+
+sme.create.ok=SME y Usuario Primario creados con éxito
+sme.create.error.pu.data=Error en los datos del Usuario Primario
+sme.create.error.sme.data=Error en los datos de la SME
+sme.create.error.noassociate=Imposible establecer la asociación entre la empresa y el empleado
+sme.create.error=Error genérico al crear la SME
+
+sme.changeprofile.ok=El profile de la empresa ha sido modificado
+sme.changeprofile.error=Error al modificar el profile de la empresa
+
+sme.setpu.ok=Usuario Primario asignado correctamente
+sme.setpu.nosme=La empresa indicada no existe
+sme.setpu.nouser=El usuario indicado no existe
+sme.setpu.noconexion=El usuario no está registrado en la empresa indicada
+sme.setpu.error=Ha ocurrido un error al establecer el Usuario Primario de la SME
+
+sme.getcontactlist.ok=Lista de contactos devuelta con éxito
+sme.getcontactlist.error=Error al devolver la lista de contactos de la SME {0}
+
+sme.requestcontact.ok=Enviada solicitud de contacto
+sme.requestcontact.nosmeorig=Empresa que envía solicitud de contacto no registrada
+sme.requestcontact.nosmedest=Empresa destino de solicitud de contacto no registrada
+sme.requestcontact.error=Error en solicitud de contacto
+
+sme.listpendingrequest.ok=Listado de solicitudes de contacto correcto
+sme.listpendingrequest.nodata=No hay solicitudes de contacto pendientes
+sme.listpendingrequest.error=Imposible obtener solicitudes de contacto
+
+sme.acceptcontact.ok=Aceptación de contacto correcta
+sme.acceptcontact.nosmeorig=Empresa que acepta contacto no registrada
+sme.acceptcontact.nosmedest=Empresa que recibe aceptación de contacto no registrada
+sme.acceptcontact.norequest=No existe solicitud de contacto entre las empresas
+sme.acceptcontact.error=Error al conectar dos empresas
+
+sme.rejectcontact.ok=Contacto rechazado
+sme.rejectcontact.nosmeorig=Empresa que rechaza contacto no registrada
+sme.rejectcontact.nosmedest=Empresa que recibe rechazo de contacto no registrada
+sme.rejectcontact.norequest=No existe solicitud de contacto entre ambas empresas
+sme.rejectcontact.error=Error al rechazar contacto
+
+sme.deletecontact.ok=Contacto eliminado
+sme.deletecontact.nosmeorig=Empresa que borra contacto no registrada
+sme.deletecontact.nosmedest=Empresa contacto a borrar no registrada
+sme.deletecontact.nocontact=La empresa a borrar no es un contacto
+sme.deletecontact.error=Error al borrar contacto
+
+sme.addrecommendation.ok=Recomendación añadida
+sme.addrecommendation.nosmeorig=No existe la empresa que quiere recomendar
+sme.addrecommendation.nosmedest=No existe la empresa que se querire recomendar
+sme.addrecommendation.nocontact=La empresa a recomendar no es contacto
+sme.addrecommendation.error=Error al crear recomendación
+
+sme.deleterecommendation.ok=Recomendación eliminada
+sme.deleterecommendation.nosmeorig=No existe empresa que quiere borrar recomendación
+sme.deleterecommendation.nosmedest=No existe la empresa cuya recomendación se quiere eliminar
+sme.deleterecommendation.error=Error al eliminar recomendación
+
+sme.getfeed.ok=Lista de notificaciones devuelta con éxito
+sme.getfeed.error=Error al devolver la lista de notificaciones de la SME {0}
+
+sme.rendercontent.ok=El contenido se presenta de forma correcta
+sme.rendercontent.nosme=La empresa no está registrada en el sistema
+sme.rendercontent.nouser=El usuario no está registrado en el sistema
+sme.rendercontent.error=Error al presentar contenido
+
+emp.changeprofile.ok=Profile de usuario modificado con éxito
+emp.changeprofile.invalid=Información de contacto inválida
+emp.changeprofile.error=Error al modificar profile de usuario
+
+emp.login.ok=Login realizado con éxito
+emp.login.invalid=Nombre de usuario inválido
+emp.login.noexists=No se ha podido encontrar al Empleado con id {0}
+emp.login.password.fail=Contraseña incorrecta
+emp.login.error=Error en el login
+
+emp.delete.ok=Se ha eliminado usuario con éxito
+emp.delete.nouser=No existe el usuario a borrar
+emp.delete.nosme=No existe sme para borrado
+emp.delete.noadvice=No se pudo informar al usuario de su borrado en la red.
+emp.delete.error=Error al tratar de eliminar al Empleado
+
+emp.logout.ok=Logout realizado con éxito
+emp.logout.noexists=No se ha podido encontrar al Empleado con id {0}
+emp.logout.error=Error en el logout
+
+su.create.ok=Secondary User creado correctamente para la SME {0}
+su.create.nodata=No hay datos en la creación del SU
+su.create.noadvice=Error en el envío de avisos (mail y/o SMS) al Primary User de la SME
+su.create.nosme=No existe la SME indicada
+su.create.error.user.data=Error en los datos del Secondary User
+su.create.error.sme.data=Error en los datos de la SME
+su.create.error.noassociate=Imposilbe asociar al usuario secundario con la empresa
+su.create.error=Error en la creación del Secondary User
+
+adm.login.ok=Login realizado con éxito
+adm.login.noexists=No se ha podido encontrar ese nombre de Administrador
+adm.login.password.fail=Contraseña incorrecta
+adm.login.error=Error en el login
+
+adm.logout.ok=Logout de administrador ok
+adm.logout.nouser=No existe el usuario administrador para logout
+adm.logout.error=Error en el logout de administrador
+
+sme.search.ok=Búsqueda finalizada con éxito
+sme.search.noresults=No se han encontrado resultados para la búsqueda
+sme.search.error=Error al realizar la búsqueda
+
+emp.sendmessage.ok=Envío de mensajes con éxito
+emp.sendmessage.nosender=El remitente del mensaje no está registrado
+emp.sendmessage.error=Error al enviar mensajes
+
+emp.answermessage.ok=Respuesta a mensaje enviada correctamente
+emp.answermessage.nosender=El remitente no está registrado
+emp.answermessage.noaddressee=El destinatario no está registrado
+emp.answermessage.noconexion=El mensaje no pertenece al usuario que intenta responder
+emp.answermessage.nomsg=El mensaje origen no existe
+emp.answermessage.error=Error al responder a un mensaje
+
+emp.deletemessage.ok=Mensaje borrado correctamente
+emp.deletemessage.nomsg=Imposible localizar el mensaje que se intenta borrar
+emp.deletemessage.nosender=El usuario o la empresa que intenta borrar no existe o no están conectados
+emp.deletemessage.error=Error al borrar mensaje
+
+sme.delenotification.ok=Notificación eliminada correctamente
+sme.delenotification.nosme=No existe la empresa que intenta borrar una notificación
+sme.delenotification.nonotif=La notificación que se intenta eliminar no está registrada
+sme.delenotification.error=Error al eliminar notificación
+
+sme.addnotice.ok=Anuncio publicado de forma correcta
+sme.addnotice.nosender= Empresa o usuario que intenta poner un anuncio, no registrado
+sme.addnotice.error=Error al publicar un anuncio
+
+sme.deletenotice.ok=Anuncio eliminado de forma correcta
+sme.deletenotice.nosender=No existe la empresa que intenta eliminar un anuncio
+sme.deletenotice.nonotice=El anuncio que se intenta eliminar no está registrado
+sme.deletenotice.error=Error al eliminar un anuncio
+
+sme.publicizeoperatorinfo.ok=Anuncio del operador publicado de forma correcta
+sme.publicizeoperatorinfo.nosender=El usuario administrador no está registrado
+sme.publicizeoperatorinfo.error=Error al publicar un anuncio del operador
+
+sme.addpost.ok=Nuevo post correctamente publicado
+sme.addpost.nosender=No existe el usuario o la empresa que intenta publicar un post
+sme.addpost.error=Error al publicar post
+
+sme.modifypost.ok=Post modificado de forma correcta
+sme.modifypost.nopost=Post a modificar no registrado
+sme.modifypost.nosender=No existe la empresa o el usuario que intenta modificar el post
+sme.modifypost.error=Error al modificar un post
+
+sme.deletepost.ok=Post eliminado
+sme.deletepost.nopost=Post a eliminar no registrado
+sme.deletepost.nosender=No existe la empresa o el usuario que intenta eliminar el post
+sme.deletepost.error=Error al eliminar post
+global.error.cookie=Error en la cookie de sesión
+
+sme.show.rss.ok=Lectura de feed RSS correcta
+sme.show.rss.error=Error al tratar de leer el feed RSS
+
+sme.searchblog.ok=Búsqueda en blog finalizada con éxito
+sme.searchblog.noresults=No se han encontrado post que cumplan las condiciones de búsqueda
+sme.searchblog.error=Error al buscar posts
+
+sme.searchmessage.ok=Búsqueda en mensajes finalizada con éxito
+sme.searchmessage.noresults=No se han encontrado mensajes que cumplan las condiciones de búsqueda
+sme.searchmessage.error=Error al buscar mensajes
+su.create.error.data.su=Error en los datos del SU

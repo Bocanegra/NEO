@@ -1,0 +1,217 @@
+default.doesnt.match.message=Property [{0}] of class [{1}] with value [{2}] does not match the required pattern [{3}]
+default.invalid.url.message=Property [{0}] of class [{1}] with value [{2}] is not a valid URL
+default.invalid.creditCard.message=Property [{0}] of class [{1}] with value [{2}] is not a valid credit card number
+default.invalid.email.message=Property [{0}] of class [{1}] with value [{2}] is not a valid e-mail address
+default.invalid.range.message=Property [{0}] of class [{1}] with value [{2}] does not fall within the valid range from [{3}] to [{4}]
+default.invalid.size.message=Property [{0}] of class [{1}] with value [{2}] does not fall within the valid size range from [{3}] to [{4}]
+default.invalid.max.message=Property [{0}] of class [{1}] with value [{2}] exceeds maximum value [{3}]
+default.invalid.min.message=Property [{0}] of class [{1}] with value [{2}] is less than minimum value [{3}]
+default.invalid.max.size.message=Property [{0}] of class [{1}] with value [{2}] exceeds the maximum size of [{3}]
+default.invalid.min.size.message=Property [{0}] of class [{1}] with value [{2}] is less than the minimum size of [{3}]
+default.invalid.validator.message=Property [{0}] of class [{1}] with value [{2}] does not pass custom validation
+default.not.inlist.message=Property [{0}] of class [{1}] with value [{2}] is not contained within the list [{3}]
+default.blank.message=Property [{0}] of class [{1}] cannot be blank
+default.not.equal.message=Property [{0}] of class [{1}] with value [{2}] cannot equal [{3}]
+default.null.message=Property [{0}] of class [{1}] cannot be null
+default.not.unique.message=Property [{0}] of class [{1}] with value [{2}] must be unique
+
+default.paginate.prev=Previous
+default.paginate.next=Next
+default.boolean.true=True
+default.boolean.false=False
+default.date.format=yyyy-MM-dd HH:mm:ss z
+default.number.format=0
+
+# Data binding errors. Use "typeMismatch.$className.$propertyName to customize (eg typeMismatch.Book.author)
+typeMismatch.java.net.URL=Property {0} must be a valid URL
+typeMismatch.java.net.URI=Property {0} must be a valid URI
+typeMismatch.java.util.Date=Property {0} must be a valid Date
+typeMismatch.java.lang.Double=Property {0} must be a valid number
+typeMismatch.java.lang.Integer=Property {0} must be a valid number
+typeMismatch.java.lang.Long=Property {0} must be a valid number
+typeMismatch.java.lang.Short=Property {0} must be a valid number
+typeMismatch.java.math.BigDecimal=Property {0} must be a valid number
+typeMismatch.java.math.BigInteger=Property {0} must be a valid number
+
+#Response messages
+global.error.params=Error in the calling params
+global.error.cookie=Error in the cookie session
+
+invitation.invite.ok=Invitation generated correctly
+invitation.invite.nomail=Error sending email for the invitation
+invitation.invite.error=Generic error processing invitation
+
+invitation.validate.ok=Valid invitation. Data are returned
+invitation.validate.nodata=Valid invitation. No data from the company
+invitation.validate.smeexists=Valid invitation. The company is already registered. Registration of Secondary User.
+invitation.validate.fraud=Invalid invitation or the company has already been registered.
+invitation.validate.error=Error when validating the invitation
+
+invitation.delete.ok=Invitation removed
+invitation.delete.error=Error when removing the invitation
+
+sme.create.ok=SME and Primary User successfully created
+sme.create.error.pu.data=Error in Primary User data
+sme.create.error.sme.data=Error in SME data
+sme.create.error.noassociate=Association between SME and employee can't be established
+sme.create.error=Error generic in create SME {0}
+
+sme.changeprofile.ok=SME profile modified
+emp.changeprofile.invalid=Invalid contact information
+sme.changeprofile.error=Error when modifying SME profile
+
+sme.setpu.ok=Primary User successfully assigned
+sme.setpu.nosme=SME doesn't exists
+sme.setpu.nouser=The user doesn't exists
+sme.setpu.noconexion=The user isn't registered in the SME
+sme.setpu.error=Error when assigning the Primary User to the SME
+
+sme.getcontactlist.ok=Contact list successfully returned
+sme.getcontactlist.error=Error when returning contact list
+
+sme.requestcontact.ok=Contact request sent
+sme.requestcontact.nosmeorig=The company that sends the contact request isn't registered
+sme.requestcontact.nosmedest=The company destination of the contact request isn't registered.
+sme.requestcontact.error=Error in the contact request
+
+sme.listpendingrequest.ok=Correct list of contact requests
+sme.listpendingrequest.nodata=There is no pending contact request
+sme.listpendingrequest.error=Can't obtain contact requests
+
+sme.acceptcontact.ok=Contact request successfully accepted
+sme.acceptcontact.nosmeorig=The company that accepts the contact request isn't registered
+sme.acceptcontact.nosmedest=The company that receives the contact request isn't registered
+sme.acceptcontact.norequest=There is no contact request between the companies
+sme.acceptcontact.error=Error when connecting both companies
+
+sme.rejectcontact.ok=Contact rejected
+sme.rejectcontact.nosmeorig=The company that rejects the contact isn't registered
+sme.rejectcontact.nosmedest=The company that receives the contact rejection isn't registered
+sme.rejectcontact.norequest=There is no contact request between the companies
+sme.rejectcontact.error=Error when rejecting a contact
+
+sme.deletecontact.ok=Contact deleted
+sme.deletecontact.nosmeorig=The company that deletes the contact isn't registered
+sme.deletecontact.nosmedest=The company contact to delete isn't registered
+sme.deletecontact.nocontact=The company to delete isn't a contact
+sme.deletecontact.error=Error when deleting a contact
+
+sme.addrecommendation.ok=Recommendation added
+sme.addrecommendation.nosmeorig=The company that wants to recommend doesn't exist
+sme.addrecommendation.nosmedest=The company that you want to recommend doesn't exist
+sme.addrecommendation.nocontact=The company to recommend isn't a contact
+sme.addrecommendation.error=Error when creating the recommendation
+
+sme.deleterecommendation.ok=Recommendation deleted
+sme.deleterecommendation.nosmeorig=The company that wants to delete a recommendation doesn't exist
+sme.deleterecommendation.nosmedest=The company that you want to delete the recommendation to doesn't exist
+sme.deleterecommendation.error=Error when deleting the recommendation
+
+sme.getfeed.ok=Notification feed successfully returned
+sme.getfeed.error=Error when returning the notification feed
+
+sme.rendercontent.ok=Content successfully shown
+sme.rendercontent.nosme=The company isn't registered in the system
+sme.rendercontent.nouser=The user isn't registered in the system
+sme.rendercontent.error=Error when showing the content
+
+emp.changeprofile.ok=User profile successfully modified
+emp.changeprofile.error=Error when modifying the user profile
+
+emp.login.ok=Employee sign-in correct
+emp.login.invalid=Invalid username
+emp.login.noexists=Could not find Employee with id {0}
+emp.login.password.fail=Password incorrect
+emp.login.error=Error in sign-in
+
+emp.delete.ok=Employee correctly deleted
+emp.delete.nouser=The user to delete doesn't exist
+emp.delete.noadvice=The user deleted couldn't be notified
+emp.delete.nosme=There is no sme to delete the user
+emp.delete.error=Error deleting Employee
+
+emp.logout.ok=Employee sign-out correct
+emp.logout.noexists=Could not find Employee with id {0}
+emp.logout.error=Error in sign-out
+
+su.create.ok=Secondary User correctly created for the SME {0}
+su.create.nodata=There is no data in Secondary User creation
+su.create.noadvice=
+su.create.nosme=The SME doesn't exist
+su.create.error.data.su=Error in Secondary User data
+su.create.error.sme.data=Error in SME data
+su.create.error.noassociate=Couldn't associate Secondary User to the company
+su.create.error=Error when creating the Secondary User
+
+adm.login.ok=NEO Administrator sign-in correct
+adm.login.noexists=Could not find NEO Administrator
+adm.login.password.fail=Password incorrect
+adm.login.error=Error in admin sign-in
+
+adm.logout.ok=Admin logout ok
+adm.logout.nouser=There is no user admin to logout
+adm.logout.error=Error in admin logout
+
+sme.search.ok=Successful search
+sme.search.noresults=No results found
+sme.search.error=Error in search
+
+emp.sendmessage.ok=Messages successfully sent
+emp.sendmessage.nosender=The message sender isn't registered
+emp.sendmessage.error=Error when sending messages
+
+emp.answermessage.ok=Answer correctly sent
+emp.answermessage.nosender=The sender is not registered
+emp.answermessage.noaddressee=The addressee is not registered
+emp.answermessage.noconexion=The message doesn't belong to the user who tries to answer
+emp.answermessage.nomsg=The original message doesn't exists
+emp.answermessage.error=Error when answering the message
+
+emp.deletemessage.ok=Message successfully deleted
+emp.deletemessage.nomsg=Couldn't find the message to delete
+emp.deletemessage.nosender=The user or the company to delete doesn't exist or isn't connected
+emp.deletemessage.error=Error when deleting the message
+
+sme.delenotification.ok=Notification successfully deleted
+sme.delenotification.nosme=The company that wants to delete a notification doesn't exist
+sme.delenotification.nonotif=The notification to delete isn't registered
+sme.delenotification.error=Error when deleting a notification
+
+sme.addnotice.ok=Notice published
+sme.addnotice.nosender=Sme or Employee that wants to publish a notice isn't registered
+sme.addnotice.error=Error publishing notice
+
+sme.deletenotice.ok=Notice successfully deleted
+sme.deletenotice.nosender=The company that wants to delete a notice doesn't exist
+sme.deletenotice.nonotice=The notice to delete isn't registered
+sme.deletenotice.error=Error when deleting a notice
+
+sme.publicizeoperatorinfo.ok=Operator info successfully published
+sme.publicizeoperatorinfo.nosender=The administrator isn't registered
+sme.publicizeoperatorinfo.error=Error when publishing an operator info
+
+sme.addpost.ok=New post successfully published
+sme.addpost.nosender=The user or the company that wants to publish a post doesn't exist
+sme.addpost.error=Error when publishing post
+
+sme.modifypost.ok=Post successfully modified
+sme.modifypost.nopost=Post to modify not registered
+sme.modifypost.nosender=The user or the company that wants to modify a post doesn't exist
+sme.modifypost.error=Error when modifying a post
+
+sme.deletepost.ok=Post deleted
+sme.deletepost.nopost=Post to delete not registered
+sme.deletepost.nosender=The user or the company that wants to delete a post doesn't exist
+sme.deletepost.error=Error when deleting a post
+
+sme.show.rss.ok=RSS correctly parsed
+sme.show.rss.error=Error when parsing RSS feed
+
+sme.searchblog.ok=Successful search in blog
+sme.searchblog.noresults=No post found that fits search conditions
+sme.searchblog.error=Error when searching posts
+
+sme.searchmessage.ok=Successful message search
+sme.searchmessage.noresults=No messages found that fits search conditions
+sme.searchmessage.error=Error when searching messages
+su.create.error.user.data=Secondary User data error

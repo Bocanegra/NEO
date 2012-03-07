@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" width="800" height="2000"
+	horizontalScrollPolicy="off"
+	verticalScrollPolicy="off">
+
+	<mx:Script>
+		<![CDATA[
+			
+		[Bindable]
+		private var _datosXML:XML;
+
+
+        public function get datosXML():XML {
+            return this._datosXML;
+        }        
+        public function set datosXML(data:XML):void {
+            _datosXML = data;
+        }        
+
+
+		       			
+		]]>
+	</mx:Script>
+
+	<mx:Spacer height="10"/>
+	<mx:HBox horizontalScrollPolicy="off"
+		verticalScrollPolicy="off">
+		
+		<mx:Spacer width="30"/>
+		
+		<mx:Panel id="logopanel" title="Logo"
+			horizontalAlign="center" height="100"
+			horizontalScrollPolicy="off"
+			verticalScrollPolicy="off">	
+			<mx:Image source="assets/logoTelefonica.gif" width="150"/>		
+		</mx:Panel>		
+	
+		<mx:Spacer width="10"/>
+			
+		<mx:VBox horizontalScrollPolicy="off"
+		verticalScrollPolicy="off" verticalGap="2">
+			<mx:HBox>
+				<mx:Label text="{_datosXML.entry.(@key=='smes').sme.name.toString()}" styleName="orangeTitle" fontSize="35"/>	
+			</mx:HBox>
+	
+			<mx:Panel id="smedata" title="{_datosXML.entry.(@key=='smes').sme.name.toString()} Data"
+				 horizontalAlign="center">			
+			    <mx:Form>
+			        <mx:FormItem id="formItem1"
+			                label="Address:">
+			            <mx:Label id="label1"
+			                    text="{_datosXML.entry.(@key=='smes').sme.address.toString()}" />
+			        </mx:FormItem>
+			        <mx:FormItem id="formItem2"
+			                label="Sector:">
+			            <mx:Label id="label2"
+			                    text="{_datosXML.entry.(@key=='smes').sme.sector.toString()}" />
+			        </mx:FormItem>
+			        <mx:FormItem id="formItem3"
+			                label="CIF:">
+			            <mx:Label id="label3"
+			                    text="{_datosXML.entry.(@key=='smes').sme.cif.toString()}" />
+			        </mx:FormItem>
+			        <mx:FormItem id="formItem4"
+			                label="Country:">
+			            <mx:Label id="label4"
+			                    text="{_datosXML.entry.(@key=='smes').sme.country.toString()}" />
+			        </mx:FormItem>
+			        <mx:FormItem id="formItem5"
+			                label="Town:">
+			            <mx:Label id="label5"
+			                    text="{_datosXML.entry.(@key=='smes').sme.town.toString()}" />
+			        </mx:FormItem>
+			        <mx:FormItem id="formItem6"
+			                label="URL:">
+			            <mx:Label id="label6"
+			                    text="{_datosXML.entry.(@key=='smes').sme.url.toString()}" />
+			        </mx:FormItem>
+			        <mx:FormItem id="formItem7"
+			                label="Primary User:">
+			            <mx:Label id="label7"
+			                    text="{_datosXML.entry.(@key=='smes').sme.primaryUser.toString()}" />
+			        </mx:FormItem>
+			    </mx:Form>
+	
+			</mx:Panel>	
+			<mx:Button label="More..." visible="false" click="resultadototal.visible=true" styleName="orangeButton"/>
+			<mx:Panel id="resultadototal" title="Resultado" visible="false" height="1500">			
+				<mx:VBox horizontalScrollPolicy="off" verticalScrollPolicy="off">
+					<mx:TextArea text="{_datosXML.toXMLString()}" width="500" height="1500"
+						 horizontalScrollPolicy="off" verticalScrollPolicy="off"/>
+				</mx:VBox>
+			</mx:Panel>	
+		</mx:VBox>		
+		
+	
+	</mx:HBox>		
+</mx:VBox>

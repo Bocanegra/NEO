@@ -1,0 +1,92 @@
+*[dir=rtl] #iHeader .iTab {margin-left:40px;margin-right:15px }
+#iHeader .iTab {margin-right:55px}
+
+.iPanel label + input[type] {
+	padding-left:95px;
+}
+
+*[dir=rtl] .iPanel label + input[type] {
+	padding-right:95px;
+}
+
+#waProgressive div {
+	margin:5px auto;width:302px
+}
+
+#waProgressive img { border:solid 1px #b3b3b3 }
+#waProgressive img[load] { background:#d6dce6 url(Img/bg-img.png) repeat-x }
+
+.iTab li { width:33%}
+.iTab li:first-child { width:34%}
+
+.msg {
+	background-color:#080;
+	color:#fff;
+	font-size:11px;
+	padding:5px;
+	-webkit-border-radius:4px;
+	margin:8px;
+}
+.err {
+	background-color:#800;
+	color:#fff;
+	font-size:11px;
+	padding:5px;
+	-webkit-border-radius:4px;
+	margin:8px;
+}
+
+.iShop li em {
+  font-size:10px
+}
+
+.iBlock p {
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.iTab li {
+  text-shadow: white;
+  font-family: helvetica,arial,sans-serif;
+  font-size: 14px;
+  color: white;
+}
+
+.name {
+  display: inherit;
+  max-width: 70%;
+  margin-right: 0px; 
+  font-size: 20px;
+  line-height: 20px;
+  color: gray;
+  padding: 10px;
+}
+
+.logo {
+  margin-bottom: 20px;
+  border-bottom: 20px;
+  -webkit-border-radius: 10px;
+  -webkit-box-shadow: 3px 3px 0 gray;
+  float: right;
+  max-width: 30%;
+  border-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.carac {
+  color: gray;
+  font-size: 10px;
+  font-weight: bolder;
+}
+
+#peque {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.pestanas {
+  font-family: arial,helvetica,sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: black;
+}

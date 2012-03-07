@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="lagm-boec" id="0" name="ContactListServiceTests" package="" tests="1" time="0.125" timestamp="2009-07-09T08:03:14">
+      <properties />
+
+      <testcase classname="ContactListServiceTests" name="testSomething" time="0.125" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="lagm-boec" id="1" name="DepartmentTests" package="" tests="1" time="0.015" timestamp="2009-07-09T08:03:15">
+      <properties />
+
+      <testcase classname="DepartmentTests" name="testSomething" time="0.015" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="1" failures="0" hostname="lagm-boec" id="2" name="EmployeeServiceTests" package="" tests="1" time="1.11" timestamp="2009-07-09T08:03:31">
+      <properties />
+
+      <testcase classname="EmployeeServiceTests" name="testLoginAndLogout" time="0.11">
+          <error message="Cannot get property &apos;logged&apos; on null object" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot get property &apos;logged&apos; on null object
+	at EmployeeServiceTests.testLoginAndLogout(EmployeeServiceTests.groovy:29)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testLoginAndLogout--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testLoginAndLogout--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="lagm-boec" id="3" name="FeedTests" package="" tests="1" time="0.016" timestamp="2009-07-09T08:03:15">
+      <properties />
+
+      <testcase classname="FeedTests" name="testSomething" time="0.016" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="13" failures="0" hostname="lagm-boec" id="4" name="InvitationServiceTests" package="" tests="15" time="0.36" timestamp="2009-07-09T08:03:32">
+      <properties />
+
+      <testcase classname="InvitationServiceTests" name="testInviteParamsTodos" time="0.031">
+          <error message="No signature of method: InvitationController.invite() is applicable for argument types: () values: []" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: InvitationController.invite() is applicable for argument types: () values: []
+	at InvitationServiceTests.testInviteParamsTodos(InvitationServiceTests.groovy:33)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="InvitationServiceTests" name="testInviteParamsObligatorios" time="0.015">
+          <error message="No signature of method: InvitationController.invite() is applicable for argument types: () values: []" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: InvitationController.invite() is applicable for argument types: () values: []
+	at InvitationServiceTests.testInviteParamsObligatorios(InvitationServiceTests.groovy:45)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="InvitationServiceTests" name="testInviteParamsSender" time="0.016">
+          <error message="No signature of method: InvitationController.invite() is applicable for argument types: () values: []" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: InvitationController.invite() is applicable for argument types: () values: []
+	at InvitationServiceTests.testInviteParamsSender(InvitationServiceTests.groovy:56)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="InvitationServiceTests" name="testInviteParamsaddresseeMail" time="0.016">
+          <error message="No signature of method: InvitationController.invite() is applicable for argument types: () values: []" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: InvitationController.invite() is applicable for argument types: () values: []
+	at InvitationServiceTests.testInviteParamsaddresseeMail(InvitationServiceTests.groovy:67)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="InvitationServiceTests" name="testInviteParamsurlBase" time="0.0">
+          <error message="No signature of method: InvitationController.invite() is applicable for argument types: () values: []" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: InvitationController.invite() is applicable for argument types: () values: []
+	at InvitationServiceTests.testInviteParamsurlBase(InvitationServiceTests.groovy:78)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="InvitationServiceTests" name="testInviteSRVOk" time="0.015">
+          <error message="No signature of method: InvitationService.invite() is applicable for argument types: (java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) values: [O2, valle@tid.es, , , http://www.neo.com/invitations]" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: InvitationService.invite() is applicable for argument types: (java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) values: [O2, valle@tid.es, , , http://www.neo.com/invitations]
+	at InvitationServiceTests.testInviteSRVOk(InvitationServiceTests.groovy:90)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="InvitationServiceTests" name="testInviteSRVNoMail" time="0.0" />
+
+      <testcase classname="InvitationServiceTests" name="testValidateParamsObligatorios" time="0.0">
+          <error message="No signature of method: InvitationService.invite() is applicable for argument types: (java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) values: [O2, valle@tid.es, TID, Ali, http://www.neo.com/invitations]" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: InvitationService.invite() is applicable for argument types: (java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) values: [O2, valle@tid.es, TID, Ali, http://www.neo.com/invitations]
+	at InvitationServiceTests.testValidateParamsObligatorios(InvitationServiceTests.groovy:118)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="InvitationServiceTests" name="testValidateParamsCode" time="0.0">
+          <error message="No signature of method: InvitationService.invite() is applicable for argument types: (java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) values: [O2, valle@tid.es, TID, Ali, http://www.neo.com/invitations]" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: InvitationService.invite() is applicable for argument types: (java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) values: [O2, valle@tid.es, TID, Ali, http://www.neo.com/invitations]
+	at InvitationServiceTests.testValidateParamsCode(InvitationServiceTests.groovy:132)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="InvitationServiceTests" name="testValidateParamsaddresseeMail" time="0.016">
+          <error message="No signature of method: InvitationService.invite() is applicable for argument types: (java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) values: [O2, valle@tid.es, TID, Ali, http://www.neo.com/invitations]" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: InvitationService.invite() is applicable for argument types: (java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) values: [O2, valle@tid.es, TID, Ali, http://www.neo.com/invitations]
+	at InvitationServiceTests.testValidateParamsaddresseeMail(InvitationServiceTests.groovy:144)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="InvitationServiceTests" name="testValidateParamsaddresseeSMEName" time="0.015">
+          <error message="No signature of method: InvitationService.invite() is applicable for argument types: (java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) values: [O2, valle@tid.es, TID, Ali, http://www.neo.com/invitations]" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: InvitationService.invite() is applicable for argument types: (java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) values: [O2, valle@tid.es, TID, Ali, http://www.neo.com/invitations]
+	at InvitationServiceTests.testValidateParamsaddresseeSMEName(InvitationServiceTests.groovy:156)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="InvitationServiceTests" name="testValidateSRVOk" time="0.0">
+          <error message="No signature of method: InvitationService.invite() is applicable for argument types: (java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) values: [O2, valle@tid.es, TID, Ali, http://www.neo.com/invitations]" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: InvitationService.invite() is applicable for argument types: (java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) values: [O2, valle@tid.es, TID, Ali, http://www.neo.com/invitations]
+	at InvitationServiceTests.testValidateSRVOk(InvitationServiceTests.groovy:171)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="InvitationServiceTests" name="testValidateSRVNoData" time="0.0" />
+
+      <testcase classname="InvitationServiceTests" name="testValidateSRVSmeExists" time="0.0">
+          <error message="No signature of method: InvitationService.invite() is applicable for argument types: (java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) values: [O2, valle@tid.es, TID, Ali, http://www.neo.com/invitations]" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: InvitationService.invite() is applicable for argument types: (java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) values: [O2, valle@tid.es, TID, Ali, http://www.neo.com/invitations]
+	at InvitationServiceTests.testValidateSRVSmeExists(InvitationServiceTests.groovy:195)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="InvitationServiceTests" name="testValidateSRVFraud" time="0.0">
+          <error message="No signature of method: InvitationService.invite() is applicable for argument types: (java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) values: [O2, valle@tid.es, TID, Ali, http://www.neo.com/invitations]" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: InvitationService.invite() is applicable for argument types: (java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) values: [O2, valle@tid.es, TID, Ali, http://www.neo.com/invitations]
+	at InvitationServiceTests.testValidateSRVFraud(InvitationServiceTests.groovy:225)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testInviteParamsTodos--
+--Output from testInviteParamsObligatorios--
+--Output from testInviteParamsSender--
+--Output from testInviteParamsaddresseeMail--
+--Output from testInviteParamsurlBase--
+--Output from testInviteSRVOk--
+--Output from testInviteSRVNoMail--
+--Output from testValidateParamsObligatorios--
+--Output from testValidateParamsCode--
+--Output from testValidateParamsaddresseeMail--
+--Output from testValidateParamsaddresseeSMEName--
+--Output from testValidateSRVOk--
+--Output from testValidateSRVNoData--
+--Output from testValidateSRVSmeExists--
+--Output from testValidateSRVFraud--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testInviteParamsTodos--
+--Output from testInviteParamsObligatorios--
+--Output from testInviteParamsSender--
+--Output from testInviteParamsaddresseeMail--
+--Output from testInviteParamsurlBase--
+--Output from testInviteSRVOk--
+--Output from testInviteSRVNoMail--
+--Output from testValidateParamsObligatorios--
+--Output from testValidateParamsCode--
+--Output from testValidateParamsaddresseeMail--
+--Output from testValidateParamsaddresseeSMEName--
+--Output from testValidateSRVOk--
+--Output from testValidateSRVNoData--
+--Output from testValidateSRVSmeExists--
+--Output from testValidateSRVFraud--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="lagm-boec" id="5" name="InvitationTests" package="" tests="1" time="0.015" timestamp="2009-07-09T08:03:15">
+      <properties />
+
+      <testcase classname="InvitationTests" name="testSomething" time="0.015" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="lagm-boec" id="6" name="ResponseTests" package="" tests="1" time="0.0" timestamp="2009-07-09T08:03:15">
+      <properties />
+
+      <testcase classname="ResponseTests" name="testSomething" time="0.0" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="9" failures="0" hostname="lagm-boec" id="7" name="SmeServiceTests" package="" tests="9" time="0.219" timestamp="2009-07-09T08:03:33">
+      <properties />
+
+      <testcase classname="SmeServiceTests" name="testaddSmeAndPU" time="0.063">
+          <error message="No such property: params for class: SmeController" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: params for class: SmeController
+	at SmeServiceTests.testaddSmeAndPU(SmeServiceTests.groovy:21)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="SmeServiceTests" name="testaddSmeWithoutData" time="0.015">
+          <error message="No such property: params for class: SmeController" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: params for class: SmeController
+	at SmeServiceTests.testaddSmeWithoutData(SmeServiceTests.groovy:78)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="SmeServiceTests" name="testRequestContactParamsTodos" time="0.016">
+          <error message="No such property: params for class: SmeController" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: params for class: SmeController
+	at SmeServiceTests.testRequestContactParamsTodos(SmeServiceTests.groovy:102)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="SmeServiceTests" name="testRequestContactParamssmeNameOrig" time="0.0">
+          <error message="No such property: params for class: SmeController" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: params for class: SmeController
+	at SmeServiceTests.testRequestContactParamssmeNameOrig(SmeServiceTests.groovy:160)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="SmeServiceTests" name="testRequestContactParamssmeNameDest" time="0.016">
+          <error message="No such property: params for class: SmeController" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: params for class: SmeController
+	at SmeServiceTests.testRequestContactParamssmeNameDest(SmeServiceTests.groovy:169)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="SmeServiceTests" name="testRequestContactSRVOk" time="0.015">
+          <error message="No such property: params for class: SmeController" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: params for class: SmeController
+	at SmeServiceTests.testRequestContactSRVOk(SmeServiceTests.groovy:184)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="SmeServiceTests" name="testRequestContactSRVNoSmeOrig" time="0.0">
+          <error message="No such property: params for class: SmeController" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: params for class: SmeController
+	at SmeServiceTests.testRequestContactSRVNoSmeOrig(SmeServiceTests.groovy:233)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="SmeServiceTests" name="testRequestContactSRVNoSmeDest" time="0.015">
+          <error message="No such property: params for class: SmeController" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: params for class: SmeController
+	at SmeServiceTests.testRequestContactSRVNoSmeDest(SmeServiceTests.groovy:263)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <testcase classname="SmeServiceTests" name="testChangeProfile" time="0.016">
+          <error message="No such property: params for class: SmeController" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: params for class: SmeController
+	at SmeServiceTests.testChangeProfile(SmeServiceTests.groovy:295)
+	at _GrailsTest_groovy$_run_closure4.doCall(_GrailsTest_groovy:202)
+	at _GrailsTest_groovy$_run_closure2.doCall(_GrailsTest_groovy:146)
+	at _GrailsTest_groovy$_run_closure1_closure19.doCall(_GrailsTest_groovy:112)
+	at _GrailsTest_groovy$_run_closure1.doCall(_GrailsTest_groovy:95)
+	at TestApp$_run_closure1.doCall(TestApp.groovy:66)
+	at gant.Gant$_dispatch_closure4.doCall(Gant.groovy:324)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy:334)
+	at gant.Gant$_dispatch_closure6.doCall(Gant.groovy)
+	at gant.Gant.withBuildListeners(Gant.groovy:344)
+	at gant.Gant.this$2$withBuildListeners(Gant.groovy)
+	at gant.Gant$this$2$withBuildListeners.callCurrent(Unknown Source)
+	at gant.Gant.dispatch(Gant.groovy:334)
+	at gant.Gant.this$2$dispatch(Gant.groovy)
+	at gant.Gant.invokeMethod(Gant.groovy)
+	at gant.Gant.processTargets(Gant.groovy:495)
+	at gant.Gant.processTargets(Gant.groovy:480)
+</error>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testaddSmeAndPU--
+--Output from testaddSmeWithoutData--
+--Output from testRequestContactParamsTodos--
+--Output from testRequestContactParamssmeNameOrig--
+--Output from testRequestContactParamssmeNameDest--
+--Output from testRequestContactSRVOk--
+--Output from testRequestContactSRVNoSmeOrig--
+--Output from testRequestContactSRVNoSmeDest--
+--Output from testChangeProfile--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testaddSmeAndPU--
+--Output from testaddSmeWithoutData--
+--Output from testRequestContactParamsTodos--
+--Output from testRequestContactParamssmeNameOrig--
+--Output from testRequestContactParamssmeNameDest--
+--Output from testRequestContactSRVOk--
+--Output from testRequestContactSRVNoSmeOrig--
+--Output from testRequestContactSRVNoSmeDest--
+--Output from testChangeProfile--
+]]></system-err>
+
+  </testsuite>
+</testsuites>

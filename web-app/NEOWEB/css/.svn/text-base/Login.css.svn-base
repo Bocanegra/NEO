@@ -1,0 +1,55 @@
+.textoNegro{
+	fontSize: 50;
+	fontWeight: bold;
+	color: #000000;
+	fontFamily: TrebuchetMSbold;		
+}
+
+.errorLabel{
+	fontSize: 14;
+	fontWeight: normal;
+	color: #ff0000;
+	fontFamily: TrebuchetMS;		
+}
+.formItemLogin{
+	fontSize: 14;
+	fontFamily: TrebuchetMS;		
+	fontWeight: normal;
+	fontStyle: normal;
+	color: #000000;
+}
+
+.buttonLogin{
+   fontFamily: TrebuchetMS;
+   fontSize: 14;
+   cornerRadius: 5;
+   fillColors: #484747, #a19d9d;
+   fillAlphas: 0.6, 0.3;
+   themeColor: #181317;
+   color: #ffffff;
+   borderColor: #000000;
+   fontWeight: normal;
+   fontStyle: normal;
+
+}
+
+.textInputLogin{
+   fontFamily: TrebuchetMS;
+   fontSize: 14;	
+   cornerRadius: 5;
+   backgroundColor: #ffffff;
+   color: #000000;
+   borderStyle: solid;
+   borderThickness: 2;
+}
+
+@font-face {
+   src: local("Trebuchet MS");
+   fontFamily: "TrebuchetMSbold";
+   fontWeight: bold;
+}
+
+@font-face {
+   src: local("Trebuchet MS");
+   fontFamily: "TrebuchetMS";
+}

@@ -1,0 +1,55 @@
+9
+
+dir
+686
+https://barricada.hi.inet/repositorio/neobe/trunk/grails-app
+https://barricada.hi.inet/repositorio/neobe
+
+
+
+2009-10-22T09:51:38.672735Z
+681
+lagm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6159dfc4-55ac-4928-9190-a6b62bd10468
+
+conf
+dir
+
+controllers
+dir
+
+domain
+dir
+
+i18n
+dir
+
+jobs
+dir
+
+services
+dir
+
+taglib
+dir
+
+utils
+dir
+
+views
+dir
+

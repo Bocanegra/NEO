@@ -1,0 +1,572 @@
+import org.springframework.web.context.support.WebApplicationContextUtils
+import org.codehaus.groovy.grails.commons.ConfigurationHolder
+import grails.util.GrailsUtil
+
+class BootStrap {
+  //def searchableService
+
+  def init = {servletContext ->
+    //Si no existe el administrador del sistema se crea.
+    def admin = Administrator.findByUser("admin")
+    if (!admin) {
+      log.debug("No admin, creating Administrator admin...")
+      admin = new Administrator(user: "admin", email: "support_neo@tid.es")
+      admin.assignPassword("admin")
+      if (!admin.save()) {
+        log.debug("Failed to create Administrator admin. See error log...")
+        admin.errors.each {
+          log.error it
+        }
+      }
+    }
+
+    // Si los sectores no están creados, se crean
+    if (!Sector.list()) {
+      def sectors = ConfigurationHolder.config.neo.sectors
+      def rssSectors = ConfigurationHolder.config.rss.sectors
+      sectors.tokenize(";").each {
+        def sector = new Sector(name: it.trim())
+        def feeds = rssSectors[it.trim()]
+        feeds.each {
+          sector.addFeed(it.trim())
+        }
+        if (!sector.save()) {
+          log.debug("Failed to create Sectors. See error log...")
+          sector.errors.each {
+            log.error it
+          }
+        }
+      }
+    }
+
+    //Se captura la sesion hibernate para el funcionamiento de las colas.
+    def context = WebApplicationContextUtils.getRequiredWebApplicationContext(servletContext)
+    def sessionFactory = context.getBean('sessionFactory')
+    HibernateUtil.setSessionFactory(sessionFactory)
+
+
+    switch (GrailsUtil.environment) {
+      case "development":
+      case "production":
+        def employee1 = Employee.findByNif("12345678P")
+        if (!employee1) {
+          employee1 = new Employee(name: "Paul", surname: "Jones", nif: "12345678P", urlAvatar: "/avatars/12345678P.jpg")
+          employee1.setPassword("paul")
+          if (!employee1.save()) log.info("Failed to create Employee. See error log...")
+        }
+
+        def employee2 = Employee.findByNif("12345686P")
+        if (!employee2) {
+          employee2 = new Employee(name: "Jack", surname: "Sheppard", nif: "12345686P", urlAvatar: "/avatars/12345686P.jpg")
+          employee2.setPassword("jack")
+          if (!employee2.save()) log.info("Failed to create Employee. See error log...")
+        }
+
+        def employee3 = Employee.findByNif("12345695P")
+        if (!employee3) {
+          employee3 = new Employee(name: "Kate", surname: "Watson", nif: "12345695P", urlAvatar: "/avatars/12345660P.jpg")
+          employee3.setPassword("kate")
+          if (!employee3.save()) log.info("Failed to create Employee. See error log...")
+        }
+
+        def employee4 = Employee.findByNif("12345650P")
+        if (!employee4) {
+          employee4 = new Employee(name: "Tom", surname: "Bridge", nif: "12345650P", urlAvatar: "/avatars/12345650P.jpg")
+          employee4.setPassword("tom")
+          if (!employee4.save()) log.info("Failed to create Employee. See error log...")
+        }
+
+        def employee5 = Employee.findByNif("12345658P")
+        if (!employee5) {
+          employee5 = new Employee(name: "Luis Angel", surname: "Garcia", nif: "12345658P", urlAvatar: "/avatars/12345658P.jpg")
+          employee5.setPassword("luis")
+          if (!employee5.save()) log.info("Failed to create Employee. See error log...")
+        }
+
+        def employee6 = Employee.findByNif("12345659P")
+        if (!employee6) {
+          employee6 = new Employee(name: "Robert", surname: "Lewis", nif: "12345659P", urlAvatar: "/avatars/12345659P.jpg")
+          employee6.setPassword("robert")
+          if (!employee6.save()) log.info("Failed to create Employee. See error log...")
+        }
+
+       def employee7 = Employee.findByNif("12345660P")
+        if (!employee7) {
+          employee7 = new Employee(name: "Natalie", surname: "Perry", nif: "12345660P", urlAvatar: "/avatars/12345695P.jpg")
+          employee7.setPassword("natalie")
+          if (!employee7.save()) log.info("Failed to create Employee. See error log...")
+        }
+
+        def sme1 = Sme.findByCif("A58818501")
+        if (!sme1) {
+          sme1 = new Sme(primaryUser: "12345650P", cif: "A58818501", name: "Alver", address: "C/ Torrelaguna, 7", town: "Madrid", sector: "Construction Equipment,Trips", country: "Spain", zipCode: "28010", numRecommendations: "3", urlLogo: "/avatars/alver.gif", logoType: "gif", telephoneNumber: "91 405 44 57", faxNumber: "91 405 44 58", contactEmail:"alver@alver.es")
+          sme1.description = "Alver es una empresa dedicada a los trabajos sobre verticales. Nuestros sistemas se basan en técnicas de descuelgue autónomo, aportando soluciones prácticas, rápidas y económicas."
+          sme1.solutions = """
+    * Tratamientos antihumedad
+    * Fijación y reposición de aplacado de piedra
+    * Pintura de fachadas, patios y conducciones
+    * Restauración de todo tipo de acabados arquitectónicos
+    * Sellado de juntas de dilatación
+    * Cristales y remates constructivos
+    * Instalación de carteles, conducciones...
+    * Realización de la ITE y otros
+    * Servicios facultativos
+          """
+          sme1.url = "http://www.alversl.com"
+          sme1.products = "Trabajos verticales. Fachadas. Impermeabilización. Rehabilitación de edificios, comunidades. Presupuestos sin compromiso."
+          sme1.addToContents(new ProfileData(metaTags: "Trabajos verticales, fachadas, impermeabilizacion", visibility: "PUBLIC"))
+          sme1.addToContents(new OperatorInfo(visibility: "PUBLIC", title: "SME Communities advice", text: "Tomorrow evening will reboot out systems"))         
+          def contactlist1 = new ContactList(visibility: "PUBLIC")
+          contactlist1.addToContacts(new Contact(sme: "A58818502", smeName: "Mayara", state: Contact.WEAK))
+          contactlist1.addToContacts(new Contact(sme: "A58818506", smeName: "Reformas Prihego", state: Contact.WEAK))
+          contactlist1.addToContacts(new Contact(sme: "A58818507", smeName: "Recova SL", state: Contact.WEAK))
+          contactlist1.addToContacts(new Contact(sme: "A58818508", smeName: "Sanensa", state: Contact.WEAK))
+          sme1.addToContents(contactlist1)
+          def recommendation1=new RecommendationBox(visibility:Content.PUBLIC)
+          recommendation1.addRecommendation("A58818509", "Construpincia", "Good work")
+          sme1.addToContents(recommendation1)
+          def feed1 = new Feed (visibility: "PUBLIC")
+          feed1.addNotification("New recommendation to SME","Sme ReformasJS has recommended SME RecovaSL ")
+          feed1.addNotification("New blog post","Sme Mayara has a new post in his blog")
+          sme1.addToContents(feed1)
+          def notice1 = new NoticeBoard(visibility: "PUBLIC")
+          notice1.addNotice("Alver","Discount for a big order","We are going to order parafilixin (200kg), but we could have a discount of 20% if we would order 500kg. If anyone is intrested in this offer, get in touch with us soon please. ")    
+          sme1.addToContents(notice1)
+          def blog = new Blog(visibility: "PUBLIC")
+          blog.addPost("Carlton Jones", "Expansion to Russia", "MOSCOW, Russia (April 2, 2008) – Deere & Company today announced plans to significantly expand its presence in Russia, one of the most important growth markets of the company in both agriculture and forestry....")
+          sme1.addToContents(blog)
+          def message1 = new MessageBox(visibility:"PUBLIC")
+          message1.addMessage("12345678P","12345678P","A58818509","Trade Fair in September","Hi Paul, do you know anything about the new trade fair what will be organizated in Paris. The date is 10th September. Could we prepare a trip, what do you think? See you!!")
+          sme1.addToContents(message1)
+          if (!sme1.save()) {
+            log.info("Failed to create Sme1. See error log...")
+            sme1.errors.each { log.error it }
+          }
+        }
+
+        def sme2 = Sme.findByCif("A58818502")
+        if (!sme2) {
+          sme2 = new Sme(primaryUser: "12345678P", cif: "A58818502", name: "Mayara", address: "C/ Maria Paz Unciti s/n", town: "Madrid", sector: "Construction Equipment,Trips", country: "Spain", zipCode: "28010",numRecommendations: "0", urlLogo: "/avatars/mayara.gif", logoType: "gif", telephoneNumber: "91 757 12 35", faxNumber: "91 757 12 36", contactEmail:"mayara@mayara.es")
+          sme2.description = "Somos una empresa dedicada a la albañilería en general, fachadas y aire acondicionado, desde hace más de 2 años. Nuestras características principales son la rapidez, eficacia y seriedad. Prestamos servicio por toda la zona de Madrid capital."
+          sme2.solutions="Fachadas y patios de viviendas y comunidades.Reformas de interiores y locales. Aire acondicionado - Domótica"
+          sme2.products = "Teja, pizarra, impermeabilización, goteras"
+          sme2.url = "http://www.mayara.es"
+          sme2.addToContents(new ProfileData(metaTags: "Trabajos Verticales,Teja, Pizarra, impermeabilizacion", visibility: "PUBLIC"))
+          sme2.addToContents(new OperatorInfo(visibility: "PUBLIC", title: "SME Communities advice", text: "Tomorrow evening will reboot out systems"))
+          def feed = new Feed (visibility: "PUBLIC")
+          feed.addNotification("The SME profile has changed","Sme Recova SL has a new telephone number")
+          feed.addNotification("New blog post","Sme Alvar has a new post in his blog")
+          feed.addNotification("New conexion between SMEs","Sme Alver and Sme Reformas Prihego has a new conexion")
+          feed.addNotification("New recommendation to SME","Sme Sanensa has recommended SME RecovaSL ")
+          feed.addNotification("The SME profile has changed","Sme Alvar has changed his address")
+          feed.addNotification("New conexion between SMEs","Sme Tarambana and Sme Pakus Eventos has a new conexion")
+          feed.addNotification("New blog post","Sme Alvar has a new post in his blog")
+          feed.addNotification("New recommendation to SME","Sme Marpei has recommended SME Alver ")
+          feed.addNotification("The SME profile has changed","Sme Marpei has changed his address")
+          feed.addNotification("New conexion between SMEs","Sme Alver and Sme Marpei has a new conexion")
+          feed.addNotification("New blog post","Sme Alvar has a new post in his blog")
+          feed.addNotification("New recommendation to SME","Sme Sanensa has recommended SME Alver ")
+          feed.addNotification("The SME profile has changed","Sme Sanensa has a new telephone fax")
+          feed.addNotification("New conexion between SMEs","Sme RecovaSL and Sme Tarambana Prihego has a new conexion")
+          feed.addNotification("New recommendation to SME","Sme RecovaSL has recommended SME Alver ")
+          feed.addNotification("New blog post","Sme Alvar has a new post in his blog")
+          feed.addNotification("The SME profile has changed","Sme Recova SL has a new telephone number")
+          feed.addNotification("New blog post","Sme Alvar has a new post in his blog")
+          feed.addNotification("New conexion between SMEs","Sme Alver and Sme Reformas Prihego has a new conexion")
+          feed.addNotification("New recommendation to SME","Sme Sanensa has recommended SME RecovaSL ")
+          feed.addNotification("The SME profile has changed","Sme Alvar has changed his address")
+          feed.addNotification("New conexion between SMEs","Sme Tarambana and Sme Pakus Eventos has a new conexion")
+          feed.addNotification("New blog post","Sme Alvar has a new post in his blog")
+          feed.addNotification("New recommendation to SME","Sme Marpei has recommended SME Alver ")
+          feed.addNotification("The SME profile has changed","Sme Marpei has changed his address")
+          feed.addNotification("New conexion between SMEs","Sme Tarambana and Sme Pakus Eventos has a new conexion")
+          feed.addNotification("New blog post","Sme Alvar has a new post in his blog")
+          feed.addNotification("New recommendation to SME","Sme Marpei has recommended SME Alver ")
+          feed.addNotification("The SME profile has changed","Sme Marpei has changed his address")
+          sme2.addToContents(feed)
+          def notice = new NoticeBoard(visibility: "PUBLIC")
+          notice.addNotice("Reformas Prihego","We are trying to find a SME of cleaning","I would like find a sme of cleaning for big surfaces to work during the next month, we need three employees and offer flextime. Telephone: 654888888")
+          notice.addNotice("Mayara","Cut of prices","Since today till 30th September we offer discounts in all products, We wait for you!!")
+          notice.addNotice("Mayara","Product called cenixil","We need a product called cenixil, but we don't find it. Help please")         
+          sme2.addToContents(notice)
+          def contactlist2 = new ContactList(visibility: "PUBLIC")
+          contactlist2.addToContacts(new Contact(sme: "A58818501", smeName: "Alver", state: Contact.WEAK))
+          contactlist2.addToContacts(new Contact(sme: "A58818506", smeName: "Reformas Prihego", state: Contact.WEAK))
+          contactlist2.addToContacts(new Contact(sme: "A58818507", smeName: "Recova SL", state: Contact.WEAK))
+          contactlist2.addToContacts(new Contact(sme: "A58818508", smeName: "Sanensa", state: Contact.WEAK))
+          contactlist2.addToContacts(new Contact(sme: "A58818509", smeName: "Construpincia", state: Contact.STRONG))
+          contactlist2.addToContacts(new Contact(sme: "A58818510", smeName: "Manitas de Oro", state: Contact.STRONG))
+          contactlist2.addToContacts(new Contact(sme: "A58818511", smeName: "Liberarte Teatro Estudio", state: Contact.WEAK))
+          contactlist2.addToContacts(new Contact(sme: "A58818512", smeName: "Tarambana", state: Contact.WEAK))
+          contactlist2.addToContacts(new Contact(sme: "A58818513", smeName: "Pakus Eventos", state: Contact.WEAK))
+          sme2.addToContents(contactlist2)
+          def blog = new Blog(visibility: "PUBLIC")
+          blog.addPost("John Farrow", "Update: Liebherr + Tons of Water + Car = Crushed Car…", "It appears the German show Galileo may be the ones behind the destroy a car with a leibherr’s bucket full of water.  The video on the next page for all who want to see them test an even smaller excavator with poor results. Since two machines went to Australia I wonder if they will be using the machine to clean their trucks too?...")
+          blog.addPost("Andrew Dearson", "Gradall XL4100 III Responds to Customers", "Responding to contemporary economic pressures, Gradall Industries, Inc., has designed greater operational savings as well as features that hold down the purchase price for its new Gradall XL 4100 III excavator. Now more than ever, this new Gradall excavator’s versatility delivers greater value with their ability to perform many jobs that used to require many different machines...")
+          blog.addPost("Peter Petrelli", "Cat’s new mining trucks 793F,797F, and 796F", "Caterpillar is moving rapidly forward with the new large mining trucks showcased at MINExpo last year and representing the company’s largest investment ever in new mining technology. The Cat® 793F and 797F mechanical drive trucks and the 795F AC electric drive truck are all achieving milestones.... ")
+          blog.addPost("John Farrow", "Footage of Construction Crane Collapse in New Dehli India", "Amazing footage from a crane collapse today in New Dehli India. The First crane has catastrophic structural failure and then the 2nd and third fall in. Very troubling. ...")
+          blog.addPost("Bruce Fox", "Joystick Steering Now Available on Case Wheel Loaders", "Case Construction Equipment has announced the availability of joystick steering on Case E Series wheel loaders, models 521E through 921E. With the joystick steering option, operators can expect more efficiency, increased productivity and less fatigue...")
+          sme2.addToContents(blog)
+          RecommendationBox recommendation2=new RecommendationBox(visibility:Content.PUBLIC)
+          recommendation2.addRecommendation("A58818501", "Alver", "Excellent")
+          recommendation2.addRecommendation("A58818509", "Construpincia", "Good prices")
+          recommendation2.addRecommendation("A58818510", "Manitas de Oro", "Working excelent and good prices")
+          sme2.addToContents(recommendation2)
+          def message2 = new MessageBox(visibility:"PUBLIC")
+          message2.addMessage("12345678P","12345695P","A58818510","Product cenixil","Hi Paul, we often use cenixil and we buy it on-line in www.dealproducts.com. Good luck")
+          message2.addMessage("12345678P","12345678P","A58818508","Security","Good Morning Paul, we have seen that you have installed security cameras and barriers. What company did it for you?. Thank you")
+          message2.addMessage("12345678P","12345678P","A58818504","Estimate","Hi Paul, how are you?, I remember you that i'm waiting for a estimation about the project. See you")
+          sme2.addToContents(message2)
+          if (!sme2.save()) {
+            log.info("Failed to create Sme2. See error log...")
+            sme2.errors.each { log.error it }
+          }
+        }
+
+        def sme3 = Sme.findByCif("A58818503")
+        if (!sme3) {
+          sme3 = new Sme(primaryUser: "12345678P", cif: "A58818503", name: "Reformas Jose Sanchez", address: "C/ Sierra Vieja, 7, 1ºC", town: "Madrid", sector: "Construction Equipment", country: "Spain", zipCode: "28010",numRecommendations: "0", urlLogo: "/avatars/ReformasJS.gif", logoType: "gif", telephoneNumber: "646 93 17 14", faxNumber: "91 993 17 15", contactEmail:"rjs@reformasJS.es")
+          sme3.description = "Reformas integrales y pequeños trabajos en albañilería.  Pintura interiores y exteriores. Mamparas e instalaciones de fontanería y electricidad."
+          sme3.url = "http://www.reformasjs.es"
+          sme3.products = "Tabiques, pladur, cocinas, baños."    
+          sme3.addToContents(new ProfileData(metaTags: "Tabiques, pladur, cocinas, baños", visibility: "PUBLIC"))
+          sme3.addToContents(new OperatorInfo(visibility: "PUBLIC", title: "SME Communities advice", text: "Tomorrow evening will reboot out systems"))
+          def contactlist3 = new ContactList(visibility: "PUBLIC")
+          contactlist3.addToContacts(new Contact(sme: "A58818501", smeName: "Alver", state: Contact.WEAK))
+          contactlist3.addToContacts(new Contact(sme: "A58818502", smeName: "Mayara", state: Contact.WEAK))
+          contactlist3.addToContacts(new Contact(sme: "A58818507", smeName: "Recova SL", state: Contact.STRONG))
+          contactlist3.addToContacts(new Contact(sme: "A58818508", smeName: "Sanensa", state: Contact.WEAK))
+          sme3.addToContents(contactlist3)
+          def feed = new Feed (visibility: "PUBLIC")
+          feed.addNotification("New blog post","Sme Alvar has a new post in his blog")
+          sme3.addToContents(feed)
+          def notice = new NoticeBoard(visibility: "PUBLIC")
+          notice.addNotice("A58818503","We are looking for an employee","We need an qualified employee to drive a big truck to London. Basic salary. 699875458")
+          notice.addNotice("A58818503","New local","Reformas JS has opened a new local in Birmingham, you're always welcome !!")
+          sme3.addToContents(notice)
+          def blog = new Blog(visibility: "PUBLIC") 
+          blog.addPost("Peter Willis", "Buy Emissions Compliance (a Little) Easier", "Construction Equipment is working to provide tools that will help you find the lowest-cost ways to get diesel emissions down to levels acceptable to the California Air Resources Board and other regulators around the country who are demanding that industry clean up its aging diesel engines...")
+          blog.addPost("Steven Defoe", "Musings on Caterpillar", "The recent runup in the stock market has folks using words such as “bottoming out,”  “market stability,” and “end of the recession.” Caterpillar stock is indicative of that runup, and although I am not a market analysis, here’s a short review of recent news coming out of Peoria.... ")
+          blog.addPost("Phil Narrow", "Outsourced Maintenance or In-House Maintenance?", "In the Discussions forum on the Construction Equipment LinkedIn group web page, an equipment professional asks the question that has been raising eyebrows, and hackles, in this industry for at least my 20 years here, and surely longer: “Can small fleet operators still afford to have a full-fledged maintenance team or would they rather outsource their maintenance jobs?” ...")
+          sme3.addToContents(blog)
+          RecommendationBox recommendation3=new RecommendationBox(visibility:Content.PUBLIC)
+          recommendation3.addRecommendation("A58818507", "Recova SL", "Excellent")
+          recommendation3.addRecommendation("A58818501", "Alver", "Guarantee of the seriousness")
+          sme3.addToContents(recommendation3)
+          sme3.addToContents(new MessageBox(visibility: "PUBLIC"))
+          if (!sme3.save()) log.info("Failed to create Sme3. See error log...")
+        }
+
+        def sme4 = Sme.findByCif("A58818504")
+        if (!sme4) {
+          sme4 = new Sme(primaryUser: "12345678P", url: "http://marpei.es", cif: "A58818504", name: "Marpei", address: "C/ San Jaime, 22", town: "Madrid", zipCode: "28010",sector: "Construction Equipment", country: "Spain", numRecommendations: "0", urlLogo: "/avatars/marpei.gif", logoType: "gif", telephoneNumber: "678 45 23 33", faxNumber: "91 745 23 34",contactEmail:"paul@marpei.es")
+          sme4.description="Albañilería y Reformas en general"
+          sme4.solutions="Construcciones en general. Rehabilitación de edificios. Reformas integrales. Instalaciones eléctricas. Calefacción. Gas. A/A. Carpintería aluminio y madera. Pocería."
+          sme4.addToContents(new ProfileData(metaTags: "Trabajos verticales, Carpintería, aluminio, madera, pocería.", visibility: "PUBLIC"))
+          sme4.addToContents(new OperatorInfo(visibility: "PUBLIC", title: "SME Communities advice", text: "Tomorrow evening will reboot out systems"))
+          sme4.addToContents(new ContactList(visibility: "PUBLIC"))
+          sme4.addToContents(new Feed(visibility: "PUBLIC"))
+          sme4.addToContents(new NoticeBoard(visibility: "PUBLIC"))
+          sme4.addToContents(new MessageBox(visibility: "PUBLIC"))
+          sme4.addToContents(new Blog(visibility: "PUBLIC"))
+          RecommendationBox recommendation4=new RecommendationBox(visibility:Content.PUBLIC)
+          recommendation4.addRecommendation("A58818501", "Alver", "Good products and nice employees")
+          sme4.addToContents(recommendation4)
+          if (!sme4.save()) log.info("Failed to create Sme4. See error log...")
+        }
+
+        def sme5 = Sme.findByCif("A58818505")
+        if (!sme5) {
+          sme5 = new Sme(primaryUser: "12345678P", cif: "A58818505", name: "Jacena Aparejadores", address: "C/ Fermín Caballero, 60", town: "Madrid", sector: "Construction Equipment", country: "esp", numRecommendations: "0", urlLogo: "/avatars/jacena.gif", logoType: "gif", telephoneNumber: "619 100 238", faxNumber: "91 730 71 40")
+          sme5.addToContents(new ProfileData(metaTags: "Seriedad, Mejor precio, Máxima calidad.", visibility: "PUBLIC"))
+          sme5.addToContents(new OperatorInfo(visibility: "PUBLIC", title: "SME Communities advice", text: "Tomorrow evening will reboot out systems"))
+          sme5.addToContents(new ContactList(visibility: "PUBLIC"))
+          sme5.addToContents(new Feed(visibility: "PUBLIC"))
+          sme5.addToContents(new NoticeBoard(visibility: "PUBLIC"))
+          sme5.addToContents(new MessageBox(visibility: "PUBLIC"))
+          sme5.addToContents(new Blog(visibility: "PUBLIC"))
+          sme5.addToContents(new RecommendationBox(visibility: "PUBLIC"))
+          if (!sme5.save()) log.info("Failed to create Sme5. See error log...")
+        }
+
+        def sme6 = Sme.findByCif("A58818506")
+        if (!sme6) {
+          sme6 = new Sme(primaryUser: "12345678P", cif: "A58818506", name: "Reformas Prihego", address: "C/ Guillén de Castro, 10", town: "Madrid", sector: "Construction Equipment", country: "esp", numRecommendations: "0", urlLogo: "/avatars/prihego.gif", logoType: "gif", telephoneNumber: "629 44 03 69", faxNumber: "91 377 32 90")
+          sme6.description="Reformas en general, albañilería y construcción."
+          sme6.solutions = """
+Reformas en gral. - Fontanería - Calefacción
+Gas - Pintura - Cerrajería - Alicatados
+Escayola - Alicatados - Parquet - Etc.
+Profesionalidad y confianza
+          """
+          sme6.addToContents(new ProfileData(metaTags: " Reformas, Fontaneria, Calefaccion, Profesionalidad, confianza", visibility: "PUBLIC"))
+          sme6.addToContents(new OperatorInfo(visibility: "PUBLIC", title: "SME Communities advice", text: "Tomorrow evening will reboot out systems"))
+          sme6.addToContents(new ContactList(visibility: "PUBLIC"))
+          sme6.addToContents(new Feed(visibility: "PUBLIC"))
+          sme6.addToContents(new NoticeBoard(visibility: "PUBLIC"))
+          sme6.addToContents(new MessageBox(visibility: "PUBLIC"))
+          sme6.addToContents(new Blog(visibility: "PUBLIC"))
+          sme6.addToContents(new RecommendationBox(visibility: "PUBLIC"))
+          if (!sme6.save()) log.info("Failed to create Sme6. See error log...")
+        }
+
+        def sme7 = Sme.findByCif("A58818507")
+        if (!sme7) {
+          sme7 = new Sme(primaryUser: "12345678P", cif: "A58818507", name: "Recova SL", address: "C/ Villanubla, 50", town: "Valladolid", sector: "Construction Equipment,Trips", country: "esp", numRecommendations: "2", urlLogo: "/avatars/recova.gif", logoType: "gif", telephoneNumber: "649 95 95 75", faxNumber: "983 13 34 67")
+          sme7.description="Reformas completas, construcción, 30 años a su servicio"
+          sme7.solutions="""
+Reformas en gral. - Fontanería - Calefacción
+Gas - Pintura - Cerrajería - Alicatados
+Escayola - Alicatados - Parquet - Etc.
+Profesionalidad y confianza
+          """
+          sme7.addToContents(new ProfileData(metaTags: "Reformas completas", visibility: "PUBLIC"))
+          sme7.addToContents(new OperatorInfo(visibility: "PUBLIC", title: "SME Communities advice", text: "Tomorrow evening will reboot out systems"))
+          sme7.addToContents(new ContactList(visibility: "PUBLIC"))
+          sme7.addToContents(new Feed(visibility: "PUBLIC"))
+          sme7.addToContents(new NoticeBoard(visibility: "PUBLIC"))
+          sme7.addToContents(new MessageBox(visibility: "PUBLIC"))
+          sme7.addToContents(new Blog(visibility: "PUBLIC"))
+          sme7.addToContents(new RecommendationBox(visibility: "PUBLIC"))
+          if (!sme7.save()) log.info("Failed to create Sme7. See error log...")
+        }
+
+        def sme8 = Sme.findByCif("A58818508")
+        if (!sme8) {
+          sme8 = new Sme(primaryUser: "12345678P", cif: "A58818508", name: "Sanensa", address: "C/ Vista Alegre, 1 - 3ºC", town: "Valladolid", sector: "Construction Equipment", country: "esp", numRecommendations: "0", urlLogo: "/avatars/sanensa.gif", logoType: "gif", telephoneNumber: "699 86 18 92")
+          sme8.description="Empresa de construcción. Albañilería y reformas."
+          sme8.addToContents(new ProfileData(metaTags: "Albañilería y reformas", visibility: "PUBLIC"))
+          sme8.addToContents(new OperatorInfo(visibility: "PUBLIC", title: "SME Communities advice", text: "Tomorrow evening will reboot out systems"))
+          sme8.addToContents(new ContactList(visibility: "PUBLIC"))
+          sme8.addToContents(new Feed(visibility: "PUBLIC"))
+          sme8.addToContents(new NoticeBoard(visibility: "PUBLIC"))
+          sme8.addToContents(new MessageBox(visibility: "PUBLIC"))
+          sme8.addToContents(new Blog(visibility: "PUBLIC"))
+          sme8.addToContents(new RecommendationBox(visibility: "PUBLIC"))
+          if (!sme8.save()) log.info("Failed to create Sme8. See error log...")
+        }
+
+        def sme9 = Sme.findByCif("A58818509")
+        if (!sme9) {
+          sme9 = new Sme(primaryUser: "12345678P", zipCode: "47011",cif: "A58818509", url: "http://www.construpincia.es",name: "Construpincia", address: "C/ Panaderos, 52 - 1º", town: "Valladolid", sector: "Construction Equipment,Trips", country: "España", numRecommendations: "2", urlLogo: "/avatars/construpincia.png", logoType: "png", faxNumber: "983 21 82 04",telephoneNumber: "983 21 82 03",contactEmail:"paul@construpincia.es")
+          sme9.description="Rehabilitación y reformas integrales"
+          sme9.solutions="Rehabilitación y reformas integrales de viviendas. Locales comerciales. Mantenimiento de comunidades."
+          sme9.addToContents(new ProfileData(metaTags: "Rehabilitación y reformas integrales de viviendas", visibility: "PUBLIC"))
+          sme9.addToContents(new OperatorInfo(visibility: "PUBLIC", title: "SME Communities advice", text: "Tomorrow evening will reboot out systems"))
+          def feed = new Feed (visibility: "PUBLIC")
+          feed.addNotification("New secundary user","Luis Angel Garcia is a new employee")
+          sme9.addToContents(feed)
+          def message9 = new MessageBox(visibility:"PUBLIC")
+          message9.addMessage("12345678P","12345660P","A58818510","Viaje a Bruselas","Hola Paul, ya tengo el billete para Bruselas, he tenido que modificar el dia de vuelta porque el meeting se ha postpuesto. Un saludo")
+          message9.addMessage("12345678P","12345659P","A58818506","Cambio de sede","Que tal Paul, te informo de que hemos cambiado nuestra dirección habitual y nos hemos trasladado a la nave que hay al lado del campo de futbol. La nueva dirección es Crta. de La Coruña, 25. Espero verte pronto!")
+          message9.addMessage("12345678P","12345660P","A58818510","Meeting en Bruselas","Hola Paul, ¿que tal tu viaje de vuelta? Yo sigo en Bruselas, que hoy ya acaba el meeting, el cual me ha parecido realmente interesante, ya te contaré. Nos vemos!!")
+          sme9.addToContents(message9)
+          def blog = new Blog(visibility: "PUBLIC")
+          blog.addPost("Paul Jones", "Update: Liebherr + Tons of Water + Car = Crushed Car…", "It appears the German show Galileo may be the ones behind the destroy a car with a leibherr’s bucket full of water.  The video on the next page for all who want to see them test an even smaller excavator with poor results. Since two machines went to Australia I wonder if they will be using the machine to clean their trucks too?...")
+          blog.addPost("Paul Jones", "Gradall XL4100 III Responds to Customers", "Responding to contemporary economic pressures, Gradall Industries, Inc., has designed greater operational savings as well as features that hold down the purchase price for its new Gradall XL 4100 III excavator. Now more than ever, this new Gradall excavator’s versatility delivers greater value with their ability to perform many jobs that used to require many different machines...")
+          sme9.addToContents(blog)
+          sme9.addToContents(new NoticeBoard(visibility: "PUBLIC")) 
+          def contactlist9 = new ContactList(visibility: "PUBLIC")
+          contactlist9.addToContacts(new Contact(sme: "A58818501", smeName: "Alver", state: Contact.INACTIVE))
+          contactlist9.addToContacts(new Contact(sme: "A58818506", smeName: "Reformas Prihego", state: Contact.WEAK))
+          contactlist9.addToContacts(new Contact(sme: "A58818507", smeName: "Recova SL", state: Contact.STRONG))
+          contactlist9.addToContacts(new Contact(sme: "A58818508", smeName: "Sanensa", state: Contact.WEAK))
+          contactlist9.addToContacts(new Contact(sme: "A58818513", smeName: "Pakus Eventos", state: Contact.STRONG))
+          sme9.addToContents(contactlist9)
+          RecommendationBox recommendation9=new RecommendationBox(visibility:Content.PUBLIC)
+          recommendation9.addRecommendation("A58818507", "RecovaSL", "Excellent")
+          recommendation9.addRecommendation("A58818513", "Pakus Eventus", "Amazing activities for eveybody")
+          sme9.addToContents(recommendation9)
+          if (!sme9.save()) log.info("Failed to create Sme9. See error log...")
+        }
+
+        def sme10 = Sme.findByCif("A58818510")
+        if (!sme10) {
+          sme10 = new Sme(primaryUser: "12345695P", cif: "A58818510", name: "Manitas de Oro", address: "Parq. Sierra Norte, 1", town: "Sevilla", sector: "Construction Equipment", country: "esp", numRecommendations: "1", urlLogo: "/avatars/manitas.gif", logoType: "gif", telephoneNumber: "655 85 76 43", faxNumber: "675 82 29 48")
+          sme10.description="Albañilería y reformas"
+          sme10.solutions="""
+Albañilería - Reformas - Obra nueva
+Pintura - Fontanería - Electricidad
+Limpieza a empresas - Servicio exprés
+24 h - Incluido domingos y festivos
+          """
+          sme10.addToContents(new ProfileData(metaTags: "Albañilería, Reformas,Obra nuevaPintura , Fontanería, Electricidad,Limpieza a empresas ,Servicio exprés", visibility: "PUBLIC"))
+          sme10.addToContents(new OperatorInfo(visibility: "PUBLIC", title: "SME Communities advice", text: "Tomorrow evening will reboot out systems"))
+          sme10.addToContents(new ContactList(visibility: "PUBLIC"))
+          sme10.addToContents(new Feed(visibility: "PUBLIC"))
+          sme10.addToContents(new NoticeBoard(visibility: "PUBLIC"))
+          sme10.addToContents(new MessageBox(visibility: "PUBLIC"))
+          sme10.addToContents(new Blog(visibility: "PUBLIC"))
+          sme10.addToContents(new RecommendationBox(visibility: "PUBLIC"))
+          if (!sme10.save()) log.info("Failed to create Sme10. See error log...")
+        }
+
+        def sme11 = Sme.findByCif("A58818511")
+        if (!sme11) {
+          sme11 = new Sme(primaryUser: "12345678P", cif: "A58818511", name: "Liberarte Teatro Estudio", address: "C/ Francisca Conde, 7", town: "Madrid", sector: "Entertainment", country: "esp", numRecommendations: "0", urlLogo: "/avatars/liberarte.gif", logoType: "gif", telephoneNumber: "91 733 00 29")
+          sme11.description="Teatro infantil y adulto"
+          sme11.solutions="""
+Teatro infantil y adultos. Ciclos, flamenco monólogos, espectáculos, danza, alquiler salón ensayos, campaña escolar y Navidad.
+En proceso rodajes y cumpleaños teatrales.
+          """
+          sme11.addToContents(new ProfileData(metaTags: "Teatro infantil y adultos", visibility: "PUBLIC"))
+          sme11.addToContents(new OperatorInfo(visibility: "PUBLIC", title: "SME Communities advice", text: "Tomorrow evening will reboot out systems"))
+          sme11.addToContents(new ContactList(visibility: "PUBLIC"))
+          sme11.addToContents(new Feed(visibility: "PUBLIC"))
+          sme11.addToContents(new NoticeBoard(visibility: "PUBLIC"))
+          sme11.addToContents(new MessageBox(visibility: "PUBLIC"))
+          sme11.addToContents(new Blog(visibility: "PUBLIC"))
+          sme11.addToContents(new RecommendationBox(visibility: "PUBLIC"))
+          if (!sme11.save()) log.info("Failed to create Sme11. See error log...")
+        }
+
+        def sme12 = Sme.findByCif("A58818512")
+        if (!sme12) {
+          sme12 = new Sme(primaryUser: "12345678P", cif: "A58818512", name: "Tarambana", address: "C/ Dolores Armengot, 31", town: "Madrid", sector: "Entertainment", country: "esp", numRecommendations: "0", urlLogo: "/avatars/tarambana.gif", logoType: "gif", telephoneNumber: "665 526 437")
+          sme12.description="Tu sala de teatro en Carabanchel. Estamos abiertos todos los días, excepto los lunes. También tenemos teatro infantil todos los fines de semana y compañía propia. Producción y distribución de espectáculos. Encargada de la animación y la organización de todo tipo de eventos."
+          sme12.solutions="""
+-Teatros
+-Producción y distribución de espectáculos
+-Producciones audiovisuales
+-Música para cualquier tipo de película o anuncio
+-Organización de eventos
+-Animación
+-Fiestas
+-Despedidas de soltero
+-Magia
+          """
+          sme12.products="""
+Abierto de martes a jueves de 08.00 a 22.00
+Abierto de viernes a sábado de 20.00 a 03.00
+Abierto el domingo de 11.00 a 14.00 y de 16.00 a 23.00
+Cerrado el lunes
+          """
+          sme12.url="http://www.tarambana.net"
+          sme12.addToContents(new ProfileData(metaTags: "Teatro infantil", visibility: "PUBLIC"))
+          sme12.addToContents(new OperatorInfo(visibility: "PUBLIC", title: "SME Communities advice", text: "Tomorrow evening will reboot out systems"))
+          sme12.addToContents(new ContactList(visibility: "PUBLIC"))
+          sme12.addToContents(new Feed(visibility: "PUBLIC"))
+          sme12.addToContents(new NoticeBoard(visibility: "PUBLIC"))
+          sme12.addToContents(new MessageBox(visibility: "PUBLIC"))
+          sme12.addToContents(new Blog(visibility: "PUBLIC"))
+          sme12.addToContents(new RecommendationBox(visibility: "PUBLIC"))
+          if (!sme12.save()) log.info("Failed to create Sme12. See error log...")
+        }
+
+        def sme13 = Sme.findByCif("A58818513")
+        if (!sme13) {
+          sme13 = new Sme(primaryUser: "12345678P", cif: "A58818513", name: "Pakus Eventos", address: "C/ Verdaguer y García, 51", town: "Madrid", sector: "Entertainment", country: "esp", numRecommendations: "1", urlLogo: "/avatars/pakus.gif", logoType: "gif", faxNumber: "91 326 03 31")
+          sme13.description="Organizamos eventos para niños y adultos en toda España: ferias, promociones, decoración con globos, g. superficies, fiestas temáticas Producciones teatrales. Sala ensayo. Casting"
+          sme13.addToContents(new ProfileData(metaTags: "Ferias, promociones, decoración", visibility: "PUBLIC"))
+          sme13.addToContents(new OperatorInfo(visibility: "PUBLIC", title: "SME Communities advice", text: "Tomorrow evening will reboot out systems"))
+          sme13.addToContents(new Feed(visibility: "PUBLIC"))
+          sme13.addToContents(new NoticeBoard(visibility: "PUBLIC"))
+          sme13.addToContents(new MessageBox(visibility: "PUBLIC"))
+          sme13.addToContents(new Blog(visibility: "PUBLIC"))
+          sme13.addToContents(new RecommendationBox(visibility: "PUBLIC"))
+          def contactlist13 = new ContactList(visibility: "PUBLIC")
+          contactlist13.addToContacts(new Contact(sme: "A58818502", smeName:"Mayara", state:Contact.STRONG))
+          sme13.addToContents(contactlist13)
+          if (!sme13.save()) {
+            log.info("Failed to create Sme13. See error log...")
+            sme13.errors.each { log.error it }
+          }
+        }
+
+        def sme14 = Sme.findByCif("A58818514")
+        if (!sme14) {
+          sme14 = new Sme(primaryUser: "12345678P", cif: "A58818514", name: "Travel Bird", address: "Pl. Universidad, 3 bajo", town: "Valladolid", sector: "Trips", country: "esp", numRecommendations: "0", urlLogo: "/avatars/travelbird.gif", logoType: "gif", telephoneNumber: "669 78 82 05", faxNumber: "983 30 94 84")
+          sme14.description="Viajes personalizados, especialidad en Egipto."
+          sme14.solutions="""
+Especialista Egipto. Casas rurales
+Paquetes turísticos. Vuelos. Hoteles. Ferrys
+Reservas on line. Descuento estudiantes, grupos y novios. Atención personalizada.
+          """
+          sme14.addToContents(new ProfileData(metaTags: "Vuelos. Hoteles. Ferrys.Reservas on line. Atención personalizada.", visibility: "PUBLIC"))
+          sme14.addToContents(new OperatorInfo(visibility: "PUBLIC", title: "SME Communities advice", text: "Tomorrow evening will reboot out systems"))
+          sme14.addToContents(new ContactList(visibility: "PUBLIC"))
+          sme14.addToContents(new Feed(visibility:"PUBLIC"))
+          sme14.addToContents(new NoticeBoard(visibility: "PUBLIC"))
+          sme14.addToContents(new MessageBox(visibility: "PUBLIC"))
+          sme14.addToContents(new RecommendationBox(visibility: "PUBLIC"))
+          def blog14 = new Blog(visibility: "PUBLIC")
+          blog14.addPost("Walt Williams", "No Passport Needed To Go To Paradise!", "Summer's end is creeping up on Road Trip Planners everywhere in the United States and some of them hanker for an exotic beach getaway before Summer gives way to Fall. But what if you don't already have a passport, which takes 6 weeks to arrive and past summer? Or someone in your group doesn't have theirs? Hawaii or the Florida Keys are good options but perhaps you're looking for a more remote vacation? .")
+          blog14.addPost("John Locke", "The Grass IS Greener at the Olympic National Park", "There's no doubt that Road Trip Planners know that National Parks offer some of the best family summer vacations.  They also know that millions of other travelers are hitting the massively popular parks like Yellowstone and Yosemite during the summer.  So where do you go when you want to experience the great outdoors, be immersed in natural settings but not too far from the amenities that makes family travel easier and yet feel like you're away from the crowds? ")
+          sme14.addToContents(blog14)
+          if (!sme14.save()) log.info("Failed to create Sme14. See error log...")
+        }
+
+        def sme15 = Sme.findByCif("A58818515")
+        if (!sme15) {
+          sme15 = new Sme(primaryUser: "12345678P", cif: "A58818515", name: "CruceroClick", address: "C/ Viriato, 33", town: "Madrid", sector: "Trips", country: "esp", numRecommendations: "0", urlLogo: "/avatars/cruceroclick.gif", logoType: "gif", telephoneNumber: "91 593 42 28")
+          sme15.description="Agencia de viajes especializada en crucerosCruceros al mejor Precio con descuentos de hasta el 70%. Cruceros por el Mediterráneo, Fiordos, Islas Griegas, Caribe, Alaska, Polinesia, etc. También Cruceros de Lujo, Lunas de miel. Asesoramiento experto y personalizado para aseguraros que elegís el mejor barco, el mejor itinerario y el camarote más confortable. ¡Confía en especialistas y acertarás!"
+          sme15.url="http://www.cruceroclick.com"
+          sme15.solutions="""
+-Cruceros baratos
+-Mediterráneo
+-Caribe
+-Islas griegas
+-Venecia
+-Estambul
+-Luna de miel
+-Viajes de novios
+-Bodas
+-Canarias
+-Fiordos
+-Caribe
+          """
+          sme15.products="""
+-Costa Cruceros
+-Royal Caribbean
+-Pullmantur
+-Iberocruceros
+-Celebrity Cruises
+-Quail Cruises
+-Holland America
+-NCL
+-Princess
+-Seabourn Cruise
+-SilverSea
+-Regent Seven Seas
+-Oceanía Cruises
+-Cunard
+-Crystal Cruises
+          """
+          sme15.addToContents(new ProfileData(metaTags: "Sol, relax, diversión, cruceros", visibility: "PUBLIC"))
+          sme15.addToContents(new OperatorInfo(visibility: "PUBLIC", title: "SME Communities advice", text: "Tomorrow evening will reboot out systems"))
+          sme15.addToContents(new ContactList(visibility: "PUBLIC"))
+          sme15.addToContents(new Feed(visibility:"PUBLIC"))
+          sme15.addToContents(new NoticeBoard(visibility: "PUBLIC"))
+          sme15.addToContents(new MessageBox(visibility: "PUBLIC"))
+          sme15.addToContents(new Blog(visibility: "PUBLIC"))
+          sme15.addToContents(new RecommendationBox(visibility: "PUBLIC"))
+          if (!sme15.save()) log.info("Failed to create Sme15. See error log...")
+        if (Membership.canAssociate(employee4, sme1, [email: "tom@alver.es"])) Membership.link(sme1, employee4, [email: "tom@alver.es"])
+        if (Membership.canAssociate(employee6, sme1, [email: "robert@alver.es"])) Membership.link(sme1, employee6, [email: "robert@alver.es"])
+        if (Membership.canAssociate(employee1, sme2, [email: "paul@mayara.es"])) Membership.link(sme2, employee1, [email: "paul@mayara.es"])
+        if (Membership.canAssociate(employee2, sme2, [email: "jack@mayara.es"])) Membership.link(sme2, employee2, [email: "jack@mayara.es"])
+        if (Membership.canAssociate(employee3, sme2, [email: "kate@mayara.es"])) Membership.link(sme2, employee3, [email: "kate@mayara.es"])
+        if (Membership.canAssociate(employee1, sme3, [email: "paul@reformasjs.es"])) Membership.link(sme3, employee1, [email: "paul@reformasjs.es"])
+        if (Membership.canAssociate(employee1, sme4, [email: "paul@marpei.es"])) Membership.link(sme4, employee1, [email: "paul@marpei.es"])
+        if (Membership.canAssociate(employee1, sme5, [email: "paul@jacena.es"])) Membership.link(sme5, employee1, [email: "paul@jacena.es"])
+        if (Membership.canAssociate(employee1, sme6, [email: "paul@prihego.es"])) Membership.link(sme6, employee1, [email: "paul@prihego.es"])
+        if (Membership.canAssociate(employee1, sme7, [email: "paul@recova.es"])) Membership.link(sme7, employee1, [email: "paul@recova.es"])
+        if (Membership.canAssociate(employee1, sme8, [email: "paul@sanensa.es"])) Membership.link(sme8, employee1, [email: "paul@sanensa.es"])
+        if (Membership.canAssociate(employee1, sme9, [email: "paul@construpincia.es"])) Membership.link(sme9, employee1, [email: "paul@construpincia.es"])
+        if (Membership.canAssociate(employee7, sme9, [email: "natalie@construpincia.es"])) Membership.link(sme9, employee7, [email: "natalie@construpincia.es"])
+        if (Membership.canAssociate(employee5, sme9, [email: "luis@construpincia.es"])) Membership.link(sme9, employee5, [email: "luis@construpincia.es"])
+        if (Membership.canAssociate(employee3, sme10, [email: "kate@manitas.es"])) Membership.link(sme10, employee3, [email: "kate@manitas.es"])
+        if (Membership.canAssociate(employee1, sme11, [email: "paul@liberarte.es"])) Membership.link(sme11, employee1, [email: "paul@liberarte.es"])
+        if (Membership.canAssociate(employee1, sme12, [email: "paul@tarambana.es"])) Membership.link(sme12, employee1, [email: "paul@tarambana.es"])
+        if (Membership.canAssociate(employee1, sme13, [email: "paul@pakus.es"])) Membership.link(sme13, employee1, [email: "paul@pakus.es"])
+        if (Membership.canAssociate(employee1, sme14, [email: "paul@travelbird.es"])) Membership.link(sme14, employee1, [email: "paul@travelbird.es"])
+        if (Membership.canAssociate(employee1, sme15, [email: "paul@cruceroclick.es"])) Membership.link(sme15, employee1, [email: "paul@cruceroclick.es"])
+        }  
+        break
+    }
+  }
+
+  def destroy = {
+    HibernateUtil.shutdown()
+  }
+}

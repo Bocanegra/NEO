@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:componentes="componentes.*"
+	horizontalScrollPolicy="off" verticalScrollPolicy="off"
+	horizontalAlign="center" backgroundAlpha="0.3"
+	backgroundColor="#ffffff">
+	
+<mx:Script>
+	<![CDATA[
+
+		import mx.rpc.events.ResultEvent;
+		import mx.rpc.events.FaultEvent;
+		import mx.controls.Alert;
+		
+					
+		[Bindable]
+		private var _datosXML:XML;
+				
+		[Bindable]
+		private var _selection:int = 2; //empiezo por la empresa
+
+		[Bindable]
+		public var server:String;
+
+		[Event("MyDataEvent.END_REGISTRATION")]
+					
+        public function get datosXML():XML {
+            return this._datosXML;
+        }        
+        public function set datosXML(data:XML):void {
+            _datosXML = data;
+        }        
+
+		private function registerOK(evt:ResultEvent):void {
+				var _registrationXML:XML = evt.result as XML;		
+				trace("RECIBIDO CORRECTAMENTE: " + _registrationXML.toXMLString());
+				var _code:String = _registrationXML.entry.(@key=="code");
+				if(_code == "003000") {
+					Alert.show("Success!");						
+					dispatchEvent(new MyDataEvent(MyDataEvent.END_REGISTRATION));
+				}
+				else if(_code == "003001" ||
+					_code == "003002" ||
+					_code == "003003") {
+					Alert.show(_registrationXML.entry.(@key=="info"));						
+				}
+				else
+					trace("Don't know what I have received!!!!");
+		}
+			
+		private function registerNOK(evt:FaultEvent):void {
+				Alert.show("Can't contact login service", "neo");
+				trace("Can't contact registration service: " + evt.message.toString());
+		}			
+
+		private function checkPass():void {
+			if(pupassword.text != rpupassword.text) {
+				Alert.show("Password and retype don't match!");	
+				pupassword.text="";
+				rpupassword.text="";			
+			}
+			else{
+				registration.send({'smeProfile.name': smename.text,
+					'smeProfile.cif': smecif.text,
+					'smeProfile.address': smeaddress.text,
+					'smeProfile.town': smetown.text,
+					'smeProfile.sector': smesector.text,
+					'smeProfile.country': smecountry.text,
+					'userProfile.name': puname.text,
+					'userProfile.surname': pusurname.text,
+					'userProfile.email': puemail.text,
+					'userProfile.password': pupassword.text,
+					'userProfile.nif': punif.text,
+					'smeProfile.content.feed': contfeed.text,
+					'smeProfile.content.noticeBoard': contnb.text,
+					'smeProfile.content.profileData': contpd.text,
+					'smeProfile.content.searchEngine': contse.text,
+					'smeProfile.content.recommendationBox': contrb.text,
+					'smeProfile.content.messageBox': contmb.text,
+					'smeProfile.content.blog': contbl.text,
+					'code': 'kkkkkkkkkk'});			
+			}
+		}
+
+	]]>
+</mx:Script>
+
+	<mx:HTTPService id="registration" url="{server}/employee/register.xml"
+		method="POST"
+		result="registerOK(event)" resultFormat="e4x"
+ 		fault="registerNOK(event)">
+ 	</mx:HTTPService>
+ 	
+ 	
+
+
+	<mx:Label text="SME and Primary User registration" styleName="orangeTitle" fontSize="25"/>	
+	
+	<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" 
+		horizontalScrollPolicy="off" verticalScrollPolicy="off"
+		horizontalAlign="center">
+		
+		<mx:Panel id="regSME" title="SME data"
+				 horizontalAlign="center">	
+				 		
+			    <mx:Form width="350" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+			    
+			        <mx:FormItem id="formItem1" label="Name:">
+			            <mx:TextInput id="smename" width="100%"/>
+			        </mx:FormItem>
+
+			        <mx:FormItem id="formItem2" label="CIF:">
+			            <mx:TextInput id="smecif" width="100%"/>
+			        </mx:FormItem>
+
+			        <mx:FormItem id="formItem3" label="Address:">
+			            <mx:TextInput id="smeaddress" width="100%"/>
+			        </mx:FormItem>
+
+			        <mx:FormItem id="formItem4" label="Town:">
+			            <mx:TextInput id="smetown" width="100%"/>
+			        </mx:FormItem>
+
+			        <mx:FormItem id="formItem5" label="Sector:">
+			            <mx:TextInput id="smesector" width="100%"/>
+			        </mx:FormItem>
+
+			        <mx:FormItem id="formItem6" label="Country:">
+			            <mx:TextInput id="smecountry" width="100%"/>
+			        </mx:FormItem>
+			     
+				</mx:Form>
+		</mx:Panel>
+		
+
+		<mx:Panel id="regPU" title="User data"
+				 horizontalAlign="center">	
+				 		
+			    <mx:Form width="350" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+			    
+			        <mx:FormItem id="formItemPU1" label="Name:">
+			            <mx:TextInput id="puname" width="100%"/>
+			        </mx:FormItem>
+
+			        <mx:FormItem id="formItemPU2" label="Surname:">
+			            <mx:TextInput id="pusurname" width="100%"/>
+			        </mx:FormItem>
+
+			        <mx:FormItem id="formItemPU3" label="eMail:">
+			            <mx:TextInput id="puemail" width="100%"/>
+			        </mx:FormItem>
+
+			        <mx:FormItem id="formItemPU4" label="Password:">
+			            <mx:TextInput id="pupassword" width="100%" displayAsPassword="true"/>
+			        </mx:FormItem>
+
+			        <mx:FormItem id="formItemPU5" label="Re-type Password:">
+			            <mx:TextInput id="rpupassword" width="100%" displayAsPassword="true"/>
+			        </mx:FormItem>			     
+
+			        <mx:FormItem id="formItemPU6" label="NIF:">
+			            <mx:TextInput id="punif" width="100%"/>
+			        </mx:FormItem>			     
+
+				</mx:Form>
+		</mx:Panel>		
+		
+	</mx:HBox>		
+
+
+	<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" 
+		horizontalScrollPolicy="off" verticalScrollPolicy="off"
+		horizontalAlign="center">
+		
+		<mx:Panel id="regVisibility" title="SME Content Visibility"
+				 horizontalAlign="center">	
+				 		
+			    <mx:Form width="350" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+			    
+			        <mx:FormItem id="formItemV1" label="Feeds:">
+			            <mx:ComboBox id="contfeed">
+			              <mx:ArrayCollection>
+			                 <mx:String>PUBLIC</mx:String>
+			                 <mx:String>CONTACTS</mx:String>
+			                 <mx:String>PRIVATE</mx:String>
+			                 <mx:String>NONE</mx:String>
+			              </mx:ArrayCollection>                     
+			            </mx:ComboBox>
+			        </mx:FormItem>
+
+			        <mx:FormItem id="formItemV2" label="Notice Board:">
+			            <mx:ComboBox id="contnb">
+			              <mx:ArrayCollection>
+			                 <mx:String>PUBLIC</mx:String>
+			                 <mx:String>CONTACTS</mx:String>
+			                 <mx:String>PRIVATE</mx:String>
+			                 <mx:String>NONE</mx:String>
+			              </mx:ArrayCollection>                     
+			            </mx:ComboBox>
+			        </mx:FormItem>
+			        
+			        <mx:FormItem id="formItemV3" label="Profile Data:">
+			            <mx:ComboBox id="contpd">
+			              <mx:ArrayCollection>
+			                 <mx:String>PUBLIC</mx:String>
+			                 <mx:String>CONTACTS</mx:String>
+			                 <mx:String>PRIVATE</mx:String>
+			                 <mx:String>NONE</mx:String>
+			              </mx:ArrayCollection>                     
+			            </mx:ComboBox>
+			        </mx:FormItem>
+			        
+			        <mx:FormItem id="formItemV4" label="Search Engine:">
+			            <mx:ComboBox id="contse">
+			              <mx:ArrayCollection>
+			                 <mx:String>PUBLIC</mx:String>
+			                 <mx:String>CONTACTS</mx:String>
+			                 <mx:String>PRIVATE</mx:String>
+			                 <mx:String>NONE</mx:String>
+			              </mx:ArrayCollection>                     
+			            </mx:ComboBox>
+			        </mx:FormItem>
+
+
+			        <mx:FormItem id="formItemV5" label="Recommendation Box:">
+			            <mx:ComboBox id="contrb">
+			              <mx:ArrayCollection>
+			                 <mx:String>PUBLIC</mx:String>
+			                 <mx:String>CONTACTS</mx:String>
+			                 <mx:String>PRIVATE</mx:String>
+			                 <mx:String>NONE</mx:String>
+			              </mx:ArrayCollection>                     
+			            </mx:ComboBox>
+			        </mx:FormItem>
+			        
+			        <mx:FormItem id="formItemV6" label="Message Box:">
+			            <mx:ComboBox id="contmb">
+			              <mx:ArrayCollection>
+			                 <mx:String>PUBLIC</mx:String>
+			                 <mx:String>CONTACTS</mx:String>
+			                 <mx:String>PRIVATE</mx:String>
+			                 <mx:String>NONE</mx:String>
+			              </mx:ArrayCollection>                     
+			            </mx:ComboBox>
+			        </mx:FormItem>
+			        
+			        <mx:FormItem id="formItemV7" label="Blog:">
+			            <mx:ComboBox id="contbl">
+			              <mx:ArrayCollection>
+			                 <mx:String>PUBLIC</mx:String>
+			                 <mx:String>CONTACTS</mx:String>
+			                 <mx:String>PRIVATE</mx:String>
+			                 <mx:String>NONE</mx:String>
+			              </mx:ArrayCollection>                     
+			            </mx:ComboBox>
+			        </mx:FormItem>
+			        
+				</mx:Form>
+		</mx:Panel>
+		
+		<mx:VBox width="350" horizontalAlign="center">
+			<mx:Button label="Register SME and PU" styleName="orangeButton"
+				 width="250" click="checkPass()"/>
+			<mx:Button label="Cancel" styleName="orangeButton"
+				 width="250" click="dispatchEvent(new MyDataEvent(MyDataEvent.END_REGISTRATION))"/>
+		</mx:VBox>
+		
+	</mx:HBox>
+	
+				
+</mx:VBox>

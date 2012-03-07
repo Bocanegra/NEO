@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" width="800" height="300">
+
+	<mx:Script>
+		<![CDATA[
+			
+		[Bindable]
+		private var _datosXML:XML;
+
+
+        public function get datosXML():XML {
+            return this._datosXML;
+        }        
+        public function set datosXML(data:XML):void {
+            _datosXML = data;
+        }        
+
+
+		       			
+		]]>
+	</mx:Script>
+
+	<mx:VBox horizontalScrollPolicy="off"
+	verticalScrollPolicy="off" horizontalAlign="center">
+
+		<mx:Spacer height="20"/>
+		
+		<mx:HBox horizontalScrollPolicy="off" width="100%"
+			verticalScrollPolicy="off" horizontalAlign="center">
+			
+			<mx:Spacer width="30"/>
+
+			<mx:Panel id="userdata" title="{_datosXML.entry.(@key=='data').name.toString()} Data"
+				 horizontalAlign="center">			
+			    <mx:Form>
+			        <mx:FormItem id="formItemUser1"
+			                label="Name:">
+			            <mx:Label id="labelUser1"
+			                    text="{_datosXML.entry.(@key=='data').name.toString()} {_datosXML.entry.(@key=='data').surname.toString()}" />
+			        </mx:FormItem>
+			        <mx:FormItem id="formItemUser2"
+			                label="eMail:">
+			            <mx:Label id="labelUser2"
+			                    text="{_datosXML.entry.(@key=='data').email.toString()}" />
+			        </mx:FormItem>
+			        <mx:FormItem id="formItemUser3"
+			                label="NIF:">
+			            <mx:Label id="labelUser3"
+			                    text="{_datosXML.entry.(@key=='data').nif.toString()}" />
+			        </mx:FormItem>
+			        <mx:FormItem id="formItemUser4"
+			                label="Registration Date:">
+			            <mx:Label id="labelUser4"
+			                    text="{_datosXML.entry.(@key=='data').dateCreated.toString()}" />
+			        </mx:FormItem>
+			        <mx:FormItem id="formItemUser5"
+			                label="Last Login Date:">
+			            <mx:Label id="labelUser5"
+			                    text="{_datosXML.entry.(@key=='data').lastLogin.toString()}" />
+			        </mx:FormItem>
+
+			    </mx:Form>
+	
+			</mx:Panel>	
+
+			<mx:Spacer width="30"/>
+			
+			<mx:Panel id="messageinbox" title="Message Inbox"
+				 horizontalAlign="center" width="300">			
+				<mx:Text text="No entries"/>
+			</mx:Panel>	
+
+		</mx:HBox>
+	</mx:VBox>				
+</mx:HBox>
